@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta keywords="clima, tiempo, lluvia, temperatura, humedad">
+    <meta description="Sencilla aplicación para consultar el estado del clima por ubicación">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://img.icons8.com/officel/80/000000/afternoon.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Sencilla aplicación del clima</title>
+</head>
+<body>
+
+    <div class="inputCity">
+        <input type="text" spellcheck="false" placeholder="   Escribe tu ciudad de consulta" required>
+        <button class="geoFind">Obtener datos del clima según tu geoubicación</button>
+    </div>
+
+    <div class="wrapper" id="contenedor">
+        <p class="info-txt"></p>
+        <div>
+            <section class="weather-part mt-4">
+                
+                
+                <div class="temp">
+                <span>Temperatura&nbsp;</span>
+                <span class="numb"></span>
+                <span class="deg">°</span>C
+                </div>
+                
+                <div class="temp">
+                <span>Sensación térmica&nbsp;</span>
+                <span class="numb-2">_</span>
+                <span class="deg">°</span>C
+                </div>
+                
+                <div class="hum">
+                <span>Humedad &nbsp;</span>
+                <span class="hum-2"></span>
+                </div>
+                
+                <div class="desc "></div>
+                
+                <div class="lugar">
+                <span></span>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
