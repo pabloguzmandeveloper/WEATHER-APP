@@ -77,9 +77,10 @@ function weatherData(data){
         const city = data.name;
         const country = data.sys.country;
         const {description, id} = data.weather[0];
-        const {temp, feels_like, humidity} = data.main;
+        const {feels_like, humidity} = data.main;
+        const temperature = data.main;
 
-        clima.querySelector(".temp .numb").innerText = Math.floor(temp);
+        clima.querySelector(".temp .numb").innerText = Math.floor(temperature);
         clima.querySelector(".desc").innerText = description;//no supe como traducir la descripccion que manda la api de ingles
         clima.querySelector(".lugar span").innerText = `${city}, ${country}`;
         clima.querySelector(".temp .numb-2").innerText = Math.floor(feels_like);
@@ -88,9 +89,43 @@ function weatherData(data){
         infoTxt.innerText = "";
         CITY.value = "";
         wrapper.classList.add("active");
+        return temperature;
     }
 };
 
 // ---------------------------------------------------------
 
-// Ciclo para listado de datos por cuatro días
+// Ciclo para crear termómetro gráfico mediante css.
+// Convertimos a enteros los °C.
+let tempInt = clima.querySelector(".temp").innerText = Math.floor(temperature);//nos está fallando esta conversión de los °C, no reconoce la constante temperature.
+
+// generamos una variable para alternar incremento o decremento en el ciclo for.
+tempDownUp = (tempInt >= 0) ? (+1) : (-1) ;
+
+// Función para adicionar elemento en el html.
+function addElemento(texto){
+    var capa = document.getElementById("capa");
+    var h1 = document.createElement("h1");
+    h1.innerHTML = texto;
+    capa.appendChild(h1);
+  }
+
+
+// Iteración por cada °C para generar columna en colores mediante css.
+for (let temp = 0; temp <= tempInt; temp +tempDownUp) {
+    if( temp <(-20)) {
+        addElemento('<div class="dangFreezz"></div>')
+    } else if ( temp >=(-20)&&temp<(-10)) {        
+        addElemento('<div class="freezz"></div>')
+    } else if ( temp >=(-10)&&temp<(0)) {        
+        addElemento('<div class="cool"></div>')
+    } else if ( temp >=(0)&&temp<(15)) {        
+        addElemento('<div class="fresh"></div>')
+    } else if ( temp >=(15)&&temp<(30)) {        
+        addElemento('<div class="templ"></div>')
+    } else if ( temp >=(30)&&temp<(45)) {        
+        addElemento('<div class="heat"></div>')
+    } else {        
+        addElemento('<div class="dangHeat"></div>')
+    };
+} ;

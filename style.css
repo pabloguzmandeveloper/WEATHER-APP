@@ -1,3 +1,31 @@
 .wrapper {
     display: flex;
+};
+/* 45°C */
+div .dangHeat {
+    background: 5px 2px red;
 }
+/* 30°C */
+div .heat {
+    background: 5px 2px rgb(255, 179, 0);
+};
+/* 25°C */
+div .templ {
+    background: 5px 2px rgb(255, 179, 0);
+};
+/* 15°C */
+div .fresh {
+    background: 5px 2px blue;
+};
+/* 0°C */
+div .cool {
+    background: 5px 2px lightblue
+};
+/* -10°C */
+div .freezz {
+    background: 5px 2px silver;
+};
+/* -20°C */
+div .dangFreezz {
+    background: 5px 2px violet;
+};
