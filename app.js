@@ -61,6 +61,16 @@ function fetchData(){
         infoTxt.innerText = "UPS! alguna falla surgió";
         infoTxt.classList.replace("Pendiente", "error");
     });
+    // Duplicamos el código inecesario para test de variable temp global.
+    /*
+    fetch(api).then(res => res.json()).then(result => tempData(result)).catch(() =>{
+        infoTxt.innerText = "UPS! alguna falla surgió";
+        infoTxt.classList.replace("Pendiente", "error");
+    });
+    tempTherm = function tempData(data){let {temp}= data.main;return temp};
+    console.log(temp);
+    return temp;
+    */
 };
 
 
@@ -80,7 +90,7 @@ function weatherData(data){
         const country = data.sys.country;
         const {description, id} = data.weather[0];
         const {temp, feels_like, humidity} = data.main;
-        tempTherm = temp;
+        // tempTherm = temp;
 
         clima.querySelector(".temp .numb").innerText = Math.floor(temp);
         clima.querySelector(".desc").innerText = description;//no supe como traducir la descripccion que manda la api de ingles
@@ -91,9 +101,14 @@ function weatherData(data){
         infoTxt.innerText = "";
         CITY.value = "";
         wrapper.classList.add("active");
+        // ----------------------
+        // function thermometer(temp) {
+        //     return temp
+        // };
+        tempTherm = temp;
         console.log(temp);
         console.log(tempTherm);
-        return tempTherm;
+        return tempTherm ;
     };
     console.log(temp);
     console.log(tempTherm);
@@ -106,16 +121,26 @@ console.log(temp);
 
 
 // ---------------------------------------------------------
-
+// Otra prueba mas duplicando código para obtener el mismo valor de temp, aparentemente la falla está en la estructura implicita del fetch, por alguna razón que desconozco en cualquie función vilculada al fetch ni permite disponer de los datos internos en la sentencia de dicha función, en este caso creamos la función tempData() y sigue pasando lo mismo sin disponer de temp por fuera, tal vez será realizar toda la estructura de la aplicación del termómetro gráfico dentro de la fución, y seguimos en el mismo caso, ya que los retornos con return para entregar las etiquetas <figura> tal vez no van a salir del mismo bloque?.
+function tempData(data) {
+    let {temp} = data.main;
+    tempTherm = temp;
+    console.log(tempTherm);
+    console.log(temp);
+    return tempTherm;
+};
 // Ciclo para crear termómetro gráfico mediante css.
 // Convertimos a enteros los °C.
-let tempInt = tempTherm;
+
+console.log(tempTherm);
+console.log(temp);
+let tempInt = 28;
 //nos está fallando esta conversión de los °C, no reconoce la constante temp.
 
-// generamos una variable para alternar incremento o decremento en el ciclo for.
+// generamos una variable para alternar incremento o decremento en el ciclo for y decidimos insertar el condicional ternario ya dentro del ciclo for.
 // tempDownUp = (tempInt >= 0) ? (+1) : (-1) ;
 
-// Función para adicionar elemento en el html.
+// Función para adicionar elemento en el html[FALTA TEST OK].
 function addElemento(texto){
     var capa = document.getElementById("capa");
     var figure = document.createElement("figure");
@@ -123,7 +148,7 @@ function addElemento(texto){
     capa.appendChild(figure);
 };
 
-// Iteración por cada °C para generar columna en colores mediante css.
+// Iteración por cada °C para generar columna en colores mediante css [FALTA TEST OK].
 for (let temp = 0; temp <= tempInt; temp = (tempInt >= 0) ? (+1) : (-1)) {
     if( temp <(-20)) {
         '<figure class="dangFreezz"></figure>'
