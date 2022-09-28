@@ -66,7 +66,7 @@ function fetchData(){
 
 // Obtenemos información de API del clima y la almacenamos en las siguientes variables. La fución weatherData despliega en el DOM los datos obtenidos de la API api.openweathermap.org.
 
-// "const {..,..,..}=...;" esta alternativa de asignación crea variables con el mismo nombre de propiedad en el objeto que queremos extraer los valores correspondientes de cada propiedad, como resultado quedan disponibles las variables en forma individual con el mismo nombre de la propiedad que contenía el objeto de origen, así se evita repetir código al tipear la sintaxis "const" el numero de veces por cada valor de las propiedades a extraer en un mismo objeto.
+// "const {..,..,..}=...;" esta alternativa de asignación crea variables con el mismo nombre de propiedad en el objeto que queremos extraer los valores correspondientes de cada propiedad, como resultado quedan disponibles las variables en forma infigureidual con el mismo nombre de la propiedad que contenía el objeto de origen, así se evita repetir código al tipear la sintaxis "const" el numero de veces por cada valor de las propiedades a extraer en un mismo objeto.
 
 let tempTherm=0;
 function weatherData(data){
@@ -118,26 +118,26 @@ let tempInt = tempTherm;
 // Función para adicionar elemento en el html.
 function addElemento(texto){
     var capa = document.getElementById("capa");
-    var h1 = document.createElement("h1");
+    var figure = document.createElement("figure");
     h1.innerHTML = texto;
-    capa.appendChild(h1);
+    capa.appendChild(figure);
 };
 
 // Iteración por cada °C para generar columna en colores mediante css.
 for (let temp = 0; temp <= tempInt; temp = (tempInt >= 0) ? (+1) : (-1)) {
     if( temp <(-20)) {
-        '<div class="dangFreezz"></div>'
+        '<figure class="dangFreezz"></figure>'
     } else if ( temp >=(-20)&&temp<(-10)) {        
-        '<div class="freezz"></div>'
+        '<figure class="freezz"></figure>'
     } else if ( temp >=(-10)&&temp<(0)) {        
-        '<div class="cool"></div>'
+        '<figure class="cool"></figure>'
     } else if ( temp >=(0)&&temp<(15)) {        
-        '<div class="fresh"></div>'
+        '<figure class="fresh"></figure>'
     } else if ( temp >=(15)&&temp<(30)) {        
-        '<div class="templ"></div>'
+        '<figure class="templ"></figure>'
     } else if ( temp >=(30)&&temp<(45)) {        
-        '<div class="heat"></div>'
+        '<figure class="heat"></figure>'
     } else {        
-        '<div class="dangHeat"></div>'
+        '<figure class="dangHeat"></figure>'
     };
 } ;
