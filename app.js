@@ -62,15 +62,15 @@ function fetchData(){
         infoTxt.classList.replace("Pendiente", "error");
     });
     // Duplicamos el código inecesario para test de variable temp global.
-    /*
+    
     fetch(api).then(res => res.json()).then(result => tempData(result)).catch(() =>{
         infoTxt.innerText = "UPS! alguna falla surgió";
         infoTxt.classList.replace("Pendiente", "error");
     });
-    tempTherm = function tempData(data){let {temp}= data.main;return temp};
-    console.log(temp);
-    return temp;
-    */
+    // tempTherm = function tempData(data){let {temp}= data.main;return temp};
+    // console.log(temp);
+    // return temp;
+    
 };
 
 
