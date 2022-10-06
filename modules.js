@@ -83,7 +83,7 @@ let data1 = dataXhour[1];
 console.log(data1.dt_txt);
 console.dir(data1);
 
-console.log(hour);
+// console.log(hour);
 
 function blockXhour(data){
 
