@@ -118,7 +118,7 @@ function weatherData(data){
 console.log(tempTherm);
 console.log(temp);
 // SE ME ESTÁ COMPLICANDO DE CÓMO LOGRAR DISPONIBILIDAD DEL DATO TEPERATURA DE LA CONSTANTE O LA VARIABLE temp y tempTherm RESPECTIVAMENTE
-
+//una posible solución es usar localStorage, investigar como se usa.
 
 // ---------------------------------------------------------
 // Otra prueba mas duplicando código para obtener el mismo valor de temp, aparentemente la falla está en la estructura implicita del fetch, por alguna razón que desconozco en cualquie función vilculada al fetch ni permite disponer de los datos internos en la sentencia de dicha función, en este caso creamos la función tempData() y sigue pasando lo mismo sin disponer de temp por fuera, tal vez será realizar toda la estructura de la aplicación del termómetro gráfico dentro de la fución, y seguimos en el mismo caso, ya que los retornos con return para entregar las etiquetas <figura> tal vez no van a salir del mismo bloque?.

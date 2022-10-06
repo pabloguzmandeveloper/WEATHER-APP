@@ -1,0 +1,30 @@
+{
+  "name": "beautiful_sky",
+  "version": "1.0.0",
+  "description": "Site of weather",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MYGUDEV/WEATHER-APP.git"
+  },
+  "keywords": [
+    "Weather",
+    "App",
+    "Beautiful",
+    "Sky"
+  ],
+  "author": "Pablo Daniel Guzman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MYGUDEV/WEATHER-APP/issues"
+  },
+  "homepage": "https://github.com/MYGUDEV/WEATHER-APP#readme",
+  "dependencies": {
+    "@types/node-fetch": "^2.6.2",
+    "fetch": "^1.1.0",
+    "node-fetch": "^2.6.7"
+  }
+}
