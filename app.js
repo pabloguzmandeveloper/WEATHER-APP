@@ -63,10 +63,10 @@ function fetchData(){
     });
     // Duplicamos el código inecesario para test de variable temp global.
     
-    fetch(api).then(res => res.json()).then(result => tempData(result)).catch(() =>{
-        infoTxt.innerText = "UPS! alguna falla surgió";
-        infoTxt.classList.replace("Pendiente", "error");
-    });
+    // fetch(api).then(res => res.json()).then(result => tempData(result)).catch(() =>{
+    //     infoTxt.innerText = "UPS! alguna falla surgió";
+    //     infoTxt.classList.replace("Pendiente", "error");
+    // });
     // tempTherm = function tempData(data){let {temp}= data.main;return temp};
     // console.log(temp);
     // return temp;
@@ -78,7 +78,7 @@ function fetchData(){
 
 // "const {..,..,..}=...;" esta alternativa de asignación crea variables con el mismo nombre de propiedad en el objeto que queremos extraer los valores correspondientes de cada propiedad, como resultado quedan disponibles las variables en forma infigureidual con el mismo nombre de la propiedad que contenía el objeto de origen, así se evita repetir código al tipear la sintaxis "const" el numero de veces por cada valor de las propiedades a extraer en un mismo objeto.
 
-let tempTherm=0;
+// let tempTherm=0;
 function weatherData(data){
     if(data.cod == "404"){
         infoTxt.classList.replace("Pendiente", "error");
@@ -105,35 +105,35 @@ function weatherData(data){
         // function thermometer(temp) {
         //     return temp
         // };
-        tempTherm = temp;
-        console.log(temp);
-        console.log(tempTherm);
-        return tempTherm ;
+        // tempTherm = temp;
+        // console.log(temp);
+        // console.log(tempTherm);
+        // return tempTherm ;
     };
-    console.log(temp);
-    console.log(tempTherm);
+    // console.log(temp);
+    // console.log(tempTherm);
     //return tempTherm;
     
 };
-console.log(tempTherm);
-console.log(temp);
+// console.log(tempTherm);
+// console.log(temp);
 // SE ME ESTÁ COMPLICANDO DE CÓMO LOGRAR DISPONIBILIDAD DEL DATO TEPERATURA DE LA CONSTANTE O LA VARIABLE temp y tempTherm RESPECTIVAMENTE
 //una posible solución es usar localStorage, investigar como se usa.
 
 // ---------------------------------------------------------
 // Otra prueba mas duplicando código para obtener el mismo valor de temp, aparentemente la falla está en la estructura implicita del fetch, por alguna razón que desconozco en cualquie función vilculada al fetch ni permite disponer de los datos internos en la sentencia de dicha función, en este caso creamos la función tempData() y sigue pasando lo mismo sin disponer de temp por fuera, tal vez será realizar toda la estructura de la aplicación del termómetro gráfico dentro de la fución, y seguimos en el mismo caso, ya que los retornos con return para entregar las etiquetas <figura> tal vez no van a salir del mismo bloque?.
-function tempData(data) {
-    let {temp} = data.main;
-    tempTherm = temp;
-    console.log(tempTherm);
-    console.log(temp);
-    return tempTherm;
-};
+// function tempData(data) {
+//     let {temp} = data.main;
+//     tempTherm = temp;
+//     console.log(tempTherm);
+//     console.log(temp);
+//     return tempTherm;
+// };
 // Ciclo para crear termómetro gráfico mediante css.
 // Convertimos a enteros los °C.
 
-console.log(tempTherm);
-console.log(temp);
+// console.log(tempTherm);
+// console.log(temp);
 let tempInt = 28;
 //nos está fallando esta conversión de los °C, no reconoce la constante temp.
 
@@ -147,22 +147,3 @@ function addElemento(texto){
     h1.innerHTML = texto;
     capa.appendChild(figure);
 };
-
-// Iteración por cada °C para generar columna en colores mediante css [FALTA TEST OK].
-for (let temp = 0; temp <= tempInt; temp = (tempInt >= 0) ? (+1) : (-1)) {
-    if( temp <(-20)) {
-        '<figure class="dangFreezz"></figure>'
-    } else if ( temp >=(-20)&&temp<(-10)) {        
-        '<figure class="freezz"></figure>'
-    } else if ( temp >=(-10)&&temp<(0)) {        
-        '<figure class="cool"></figure>'
-    } else if ( temp >=(0)&&temp<(15)) {        
-        '<figure class="fresh"></figure>'
-    } else if ( temp >=(15)&&temp<(30)) {        
-        '<figure class="templ"></figure>'
-    } else if ( temp >=(30)&&temp<(45)) {        
-        '<figure class="heat"></figure>'
-    } else {        
-        '<figure class="dangHeat"></figure>'
-    };
-} ;

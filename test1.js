@@ -13,14 +13,16 @@ function WeatHour(hour, temp, hum , wind, desc) {
     this.wind = wind;
     this.desc = desc;
 };
-// Inicializamos el contador de horas.
+// Inicializamos el contador de horas y declaramos un objeto para guardar la información del bloque de pronóstico extendido por 4 días.
 let hr = 0;
+let extddForecast4d = {};
 // Comenzamos la iteración por cada elemento del array de "dataXhour", para crear otro array con objetos nuevos llamados de la forma que queremos, especificamente se van a llamar con nombre "hour" mas el sufijo en numeros correspondiente a la hora, ej.: hora0, hora1,etc.
 let data1 = dataXhour[1];
 console.log("DATOS DE un único atributo dt_txt");
 console.log(data1.dt_txt);
 console.log("Datos de UN elemeto del array posición 1");
 console.dir(data1);
+
 function blockXhour(data){
     let hour = data.dt_txt;
     let temp = data.main.temp;
@@ -29,24 +31,20 @@ function blockXhour(data){
     let description = data.weather[0].description;
     return {hour, temp, humidity, wind, description};
 };
+
 console.log("Retorno de objeto con variables de un sólo elemento posición 1 del array");
 console.log(blockXhour(data1));
+
+console.log("Prueba de falla del atributo descriptión porque nos da undefined");//finalmente el error estaba en la forma de obtener el atributo "descripción", ya que por el extenso código del json original entendimos que descripción estaba dentro de un sólo objeto, en realidad este objeto a su vez estaba dentro de un array, colocamos "data.weather[0].description" y resolvimos el asunto
+console.dir(data1.weather[0].description);
+
+// Función iteradora guardada en una variable para disponer en el DOM.
 let hourRender = dataXhour.map((el)=>{
     return blockXhour(el);
 });
+
 console.log("Datos finales que se van a destinar a la web");
 console.log(hourRender);
-console.log("Prueba de falla del atributo descriptión porque nos da undefined");//finalmente el error estaba en la forma de obtener el atributo "descripción", ya que por el extenso código del json original entendimos que descripción estaba dentro de un sólo objeto, en realidad este objeto a su vez estaba dentro de un array, colocamos "data.weather[0].description" y resolvimos el asunto
-console.dir(data1.weather[0].description);
-// Función iteradora guardada en una variable para disponer en el DOM.
-let arrayXhourDOM = dataXhour.map((el)=>{
-    let hr=0;
-    let laps=0;
-    [`laps${hr}`] = new WeatHour(blockXhour(el));
-    console.log(laps);
-    // hour`${hr}`= new WeatHour(blockXhour(el));
-    hr+=1;
-});
 
-
-console.log(arrayXhourDOM);
+console.log("RESULTADO arrayXhourDOM");
+console.log();
