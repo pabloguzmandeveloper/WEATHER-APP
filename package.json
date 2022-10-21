@@ -25,6 +25,7 @@
   "dependencies": {
     "@types/node-fetch": "^2.6.2",
     "fetch": "^1.1.0",
+    "luxon": "^3.0.4",
     "node-fetch": "^2.6.7"
   }
 }

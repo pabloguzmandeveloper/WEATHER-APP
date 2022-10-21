@@ -1,0 +1,130 @@
+let inicio = 27000
+let sumatoria=0;
+let total = 0;
+for (let i = 1; i <20; i +=1){
+    let incr = 0.07;
+    let porc = (inicio*incr)
+    incr += 0.01
+    sumatoria = (inicio += porc);
+    console.log("CUOTA MES "+i)
+    console.log(sumatoria)
+console.log("ACUMULADO MES "+i)
+    total = (total+=sumatoria)
+    console.log(total)
+    
+}
+
+incremento
+1890
+CUOTA MES 1
+28890
+ACUMULADO MES 1
+28890
+incremento
+2022
+CUOTA MES 2
+30912
+ACUMULADO MES 2
+59802
+incremento
+2164
+CUOTA MES 3
+33076
+ACUMULADO MES 3
+92878
+incremento
+2315
+CUOTA MES 4
+35391
+ACUMULADO MES 4
+128269
+incremento
+2477
+CUOTA MES 5
+37868
+ACUMULADO MES 5
+166137
+incremento
+2651
+CUOTA MES 6
+40519
+ACUMULADO MES 6
+206656
+incremento
+2836
+CUOTA MES 7
+43355
+ACUMULADO MES 7
+250011
+incremento
+3035
+CUOTA MES 8
+46390
+ACUMULADO MES 8
+296401
+incremento
+3247
+CUOTA MES 9
+49637
+ACUMULADO MES 9
+346038
+incremento
+3475
+CUOTA MES 10
+53112
+ACUMULADO MES 10
+399150
+incremento
+3718
+CUOTA MES 11
+56830
+ACUMULADO MES 11
+455980
+incremento
+3978
+CUOTA MES 12
+60808
+ACUMULADO MES 12
+516788
+incremento
+4257
+CUOTA MES 13
+65065
+ACUMULADO MES 13
+581853
+incremento
+4555
+CUOTA MES 14
+69620
+ACUMULADO MES 14
+651473
+incremento
+4873
+CUOTA MES 15
+74493
+ACUMULADO MES 15
+725966
+incremento
+5215
+CUOTA MES 16
+79708
+ACUMULADO MES 16
+805674
+incremento
+5580
+CUOTA MES 17
+85288
+ACUMULADO MES 17
+890962
+incremento
+5970
+CUOTA MES 18
+91258
+ACUMULADO MES 18
+982220
+incremento
+6388
+CUOTA MES 19
+97646
+ACUMULADO MES 19
+1079866

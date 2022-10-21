@@ -147,3 +147,8 @@ function addElemento(texto){
     h1.innerHTML = texto;
     capa.appendChild(figure);
 };
+
+
+
+
+

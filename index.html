@@ -9,9 +9,13 @@
     <link rel="icon" href="https://img.icons8.com/officel/80/000000/afternoon.png">
     <link rel="stylesheet" href="style.css">
     <title>Sencilla aplicación del clima</title>
+    <script src=https://cdn.jsdelivr.net/npm/luxon@3.0.4/build/global/luxon.min.js></script>
 </head>
 <body>
-
+    <header>
+        <button id="langEspa">ES</button>
+        <button class="langEngl">EN</button>
+    </header>
     <div class="inputCity">
         <input type="text" spellcheck="false" placeholder="   Escribe tu ciudad de consulta" required>
         <button class="geoFind">Obtener datos del clima según tu geoubicación</button>
@@ -62,11 +66,20 @@
     <figure class=""></figure>
 
     <section id="forecast4d">
-
-
+        <ul id="references">
+            <li class="icon">Icono</li>
+            <li class="hour">Día/Hora</li> 
+            <li class="tMaxMin">T.Max/Min °C</li>
+            <li class="humid">Humedad %</li>
+            <li class="rain">Lluvias mm/h</li>
+            <li class="wind">Vientos km/h</li>
+            <li class="descr">Descripción</li>
+        </ul>
     </section>
+    
     <script src="app.js"></script>
     <script src="forecast4d.js"></script>
+    
     <!-- <script src="test1.js"></script> -->
     <!-- <script src="test2.js"></script> -->
     <!-- <script src="test3.js"></script> -->
