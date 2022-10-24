@@ -1,130 +1,155 @@
-let inicio = 27000
-let sumatoria=0;
-let total = 0;
-for (let i = 1; i <20; i +=1){
-    let incr = 0.07;
-    let porc = (inicio*incr)
-    incr += 0.01
-    sumatoria = (inicio += porc);
-    console.log("CUOTA MES "+i)
-    console.log(sumatoria)
-console.log("ACUMULADO MES "+i)
-    total = (total+=sumatoria)
-    console.log(total)
-    
+// dtHour.textContent = "test for ul";
+// Select language.
+
+// let hora = "Hora";
+// let temperatura = "Temp.";
+// let humedad = "Humed.";
+// let lluvia = "Lluvia";
+// let descripcion = "Descripción";
+// let viento = "Viento";
+
+// let hour = "Hour";
+// let temperarture = "Temp.";
+// let humidity = "Humidity";
+// let rain = "Rain";
+// let description = "Description";
+// let wind = "Wind";
+
+// // ---------------------------------------------------------
+// let btLangSpanish = document.getElementById("langEspa");
+//     btLangSpanish.addEventListener("click", changeSpanish)
+//     function changeSpanish(e){
+//         e.preventDefault;
+//         dtHour.innerHTML += "<li class=`icon`>Icono</li>"
+//         dtHour.innerHTML += "<li class=`hour`>Día/Hora</li>";
+//         dtHour.innerHTML += "<li class=`tMaxMin`>T.Max/Min °C</li>";
+//         dtHour.innerHTML += "<li class=`humid`>Humedad %</li>";
+//         dtHour.innerHTML += "<li class=`rain`>Lluvias mm/h</li>";
+//         dtHour.innerHTML += "<li class=`wind`>Vientos km/h</li>";
+//         dtHour.innerHTML += "<li class=`descr`>Descripción</li>";;
+
+//         console.log("Respuesta evento");
+//     }
+
+
+// let espanol = dtHour.innerHTML= "<li class='ref'>"
+// let english = dtHour.innerHTML
+
+// for (let i = 1; i <= 6; i+=1) {
+//     let list= document.createElement("li");
+//     list.textContent += "lista"+i;
+//     dtHour.appendChild(list);
+// };
+// for (let i = 1; i <= 6; i+=1) {
+//     let list= document.createElement("li");
+//     list.textContent += "lista"+i;
+//     dtHour.appendChild(list);
+// };
+
+
+
+
+// Agregado de nuevos elementos al DOM.
+/*
+const ul = document.createElement("ul");
+const fragment = document.createDocumentFragment();
+const IDIOMA = "es";
+const CONTENIDO_ESPAÑOL = "Lista";
+const CONTENIDO_INGLES = "List ";
+
+for (let i = 1; i <= 5; i++) {
+    let li = document.createElement("li");
+    if (IDIOMA === "es") li.textContent = `${CONTENIDO_ESPAÑOL} ${i}`;
+    else li.textContent = ` ${CONTENIDO_INGLES} ${i}`;
+    fragment.append(li);
 }
 
-incremento
-1890
-CUOTA MES 1
-28890
-ACUMULADO MES 1
-28890
-incremento
-2022
-CUOTA MES 2
-30912
-ACUMULADO MES 2
-59802
-incremento
-2164
-CUOTA MES 3
-33076
-ACUMULADO MES 3
-92878
-incremento
-2315
-CUOTA MES 4
-35391
-ACUMULADO MES 4
-128269
-incremento
-2477
-CUOTA MES 5
-37868
-ACUMULADO MES 5
-166137
-incremento
-2651
-CUOTA MES 6
-40519
-ACUMULADO MES 6
-206656
-incremento
-2836
-CUOTA MES 7
-43355
-ACUMULADO MES 7
-250011
-incremento
-3035
-CUOTA MES 8
-46390
-ACUMULADO MES 8
-296401
-incremento
-3247
-CUOTA MES 9
-49637
-ACUMULADO MES 9
-346038
-incremento
-3475
-CUOTA MES 10
-53112
-ACUMULADO MES 10
-399150
-incremento
-3718
-CUOTA MES 11
-56830
-ACUMULADO MES 11
-455980
-incremento
-3978
-CUOTA MES 12
-60808
-ACUMULADO MES 12
-516788
-incremento
-4257
-CUOTA MES 13
-65065
-ACUMULADO MES 13
-581853
-incremento
-4555
-CUOTA MES 14
-69620
-ACUMULADO MES 14
-651473
-incremento
-4873
-CUOTA MES 15
-74493
-ACUMULADO MES 15
-725966
-incremento
-5215
-CUOTA MES 16
-79708
-ACUMULADO MES 16
-805674
-incremento
-5580
-CUOTA MES 17
-85288
-ACUMULADO MES 17
-890962
-incremento
-5970
-CUOTA MES 18
-91258
-ACUMULADO MES 18
-982220
-incremento
-6388
-CUOTA MES 19
-97646
-ACUMULADO MES 19
-1079866
+ul.append(fragment);
+document.body.append(ul); 
+==============================================
+const ul = document.createElement("ul");
+const IDIOMA = "es";
+const CONTENIDO_ESPAÑOL = "Lista";
+const CONTENIDO_INGLES = "List";
+
+for (let i = 1; i <= 5; i++) {
+    let li = document.createElement("li");
+    if (IDIOMA === "es") li.textContent = `${CONTENIDO_ESPAÑOL} ${i}`;
+    else li.textContent = ` ${CONTENIDO_INGLES} ${i}`;
+    ul.append(li);
+}
+
+document.body.append(ul);
+
+*/
+
+
+
+// let hourRender = dataXhour.map((el)=>{
+//     return blockXhour(el);
+// });
+// _____________________________________________________________________________________app.js
+// generamos una variable para alternar incremento o decremento en el ciclo for y decidimos insertar el condicional ternario ya dentro del ciclo for.
+// tempDownUp = (tempInt >= 0) ? (+1) : (-1) ;
+
+// Función para adicionar elemento en el html[FALTA TEST OK].
+function addElemento(texto){
+    var capa = document.getElementById("capa");
+    var figure = document.createElement("figure");
+    h1.innerHTML = texto;
+    capa.appendChild(figure);
+};
+// ___________________________________________________________________________________
+// "const {..,..,..}=...;" esta alternativa de asignación crea variables con el mismo nombre de propiedad en el objeto que queremos extraer los valores correspondientes de cada propiedad, como resultado quedan disponibles las variables en forma individual con el mismo nombre de la propiedad que contenía el objeto de origen, así se evita repetir código al tipear la sintaxis "const" el numero de veces por cada valor de las propiedades a extraer en un mismo objeto.
+
+// ________________________________________________
+
+function weatherData(data){
+    if(data.cod == "404"){
+        infoTxt.classList.replace("Pendiente", "error");
+        infoTxt.innerText = `${inputField.value} CITY INVÁLIDA, ingrese otra ciudad`;
+    }else{
+        //guardamos la ciudad para reutilizarla con el temporizador.
+        CITY.value !=""?localStorage.cityStorage = CITY.value : localStorage.cityStorage;
+        //se seleccionan los datos que nos inmportan del json en forma de objetos y arrays
+        // Data para primer hora de consulta.
+        console.log(data);
+        const {temp,feels_like,humidity} = data.list[0].main;
+        console.log(temp,humidity,feels_like);
+        const tempMax0 = data.list[0].main.temp_max;
+        const tempMin0 = data.list[0].main.temp_min;
+        const pressure0 = data.list[0].main.pressure;
+        const seaLevel0 = data.list[0].main.sea_level;
+        const feelsLike0 = data.list[0].main.feels_like;
+        const humidity0 = data.list[0].main.humidity;
+        const {description} = data.list[0].weather[0].description;
+        const icon0 = data.list[0].weather[0].icon;
+        const clouds0 = data.list[0].clouds.all;
+        const windSpeed0 = data.list[0].wind.speed;
+        const windDeg0 = data.list[0].wind.deg;
+        const windGust0 = data.list[0].wind.gust;
+        const visibility0 = data.list[0].visibility;
+        const probPrecip0 = data.list[0].pop;
+        const night_day0 = data.list[0].sys.pod;
+        const {city} = data.city.name;
+        const {country} = data.city.country;
+        const sunrise = data.city.sunrise;
+        const sunset = data.city.sunset;  
+        // const {temp, temp_min, temp_max, feels_like, humidity} = data.list;
+        // const {description, icon} = data.weather[0];
+        const clouds = data.clouds.all;
+        const {speed , deg, gust} = data.wind;
+        const visibility = data.visibility;
+        const probPrecip = data.pop;
+        const night_day = data.sys.pod;
+        
+        // Data para pronostico por hora a 4 días.
+        clima.querySelector(".temp .numb").innerText = Math.floor(temp);
+        clima.querySelector(".desc").innerText = description;
+        clima.querySelector(".lugar span").innerText = `${city}, ${country}`;
+        clima.querySelector(".temp .numb-2").innerText = Math.floor(feels_like);
+        clima.querySelector(".hum .hum-2").innerText = `${humidity}%`;
+        infoTxt.classList.remove("Pendiente", "error");
+        infoTxt.innerText = "";
+        CITY.value = "";
+        wrapper.classList.add("active");
