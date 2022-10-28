@@ -1,4 +1,4 @@
-//se declaran las constantes para desplegar y obtener informacion del DOM
+//Se declaran las constantes para desplegar y obtener informacion del DOM
 const wrapper = document.querySelector(".wrapper"),
 infoTxt = document.querySelector(".info-txt"),
 CITY = document.querySelector("input"),
@@ -69,7 +69,7 @@ function fetchData(){
     });
 };
 
-
+// ------------------------------------------------------------------
 // Obtenemos información de API del clima y la almacenamos en las siguientes variables. La fución weatherData despliega en el DOM los datos obtenidos de la API api.openweathermap.org.
 function weatherData(data){
     if(data.cod == "404"){
@@ -85,6 +85,19 @@ function weatherData(data){
         const {description, id} = data.list[0].weather[0];
         const {temp, feels_like, humidity} = data.list[0].main;
 
+        // Segmentamos la información para el bloque de datos de los 4 días (array de datos por hora, particularmente 96hs resultando 4 días de pronóstico).
+        let dataXhour = data.list;
+        console.log(dataXhour);
+        let hourRender = dataXhour.map(el=>{
+            console.log(el);
+            return blockXhour(el);
+        });
+        render4days(hourRender);
+        console.log(render4days(hourRender));
+
+        console.log("Datos finales que se van a destinar a la web");
+        console.log(hourRender);
+
         clima.querySelector(".temp .numb").innerText = Math.floor(temp);
         clima.querySelector(".desc").innerText = description;
         clima.querySelector(".lugar span").innerText = `${city}, ${country}`;
@@ -94,5 +107,10 @@ function weatherData(data){
         infoTxt.innerText = "";
         CITY.value = "";
         wrapper.classList.add("active");
+        // -------------------------------------------------------------
+        // Comenzamos la iteración por cada elemento del array de "dataXhour", para crear otro array con objetos nuevos llamados de la forma que queremos, especificamente se van a llamar con nombre "hour" mas el sufijo en numeros correspondiente a la hora, ej.: hora0, hora1,etc.
+        
+        // Función iteradora guardada en una variable para disponer en el DOM.
+
     };
 };

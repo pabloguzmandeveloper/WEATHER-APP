@@ -72,44 +72,48 @@ console.dir(data1);
 function blockXhour(data){
     let icon = data.weather[0].icon
     let timestamp4d = luxon.DateTime.fromSeconds(data.dt).toFormat('HH');
-    let hour = timestamp4d==='00'?luxon.DateTime.fromSeconds(data.dt).toFormat('d MMM'):timestamp4d;
+    let hour = timestamp4d==='00'
+                ?luxon.DateTime.fromSeconds(data.dt).toFormat('d MMM')
+                :timestamp4d;
+    console.log(hour);
     let temp_max = Math.round(data.main.temp_max*10)/10 ;
     let temp_min = Math.round(data.main.temp_min*10)/10;
     let humidity = data.main.humidity;
-    let rain = (Math.round(data.rain*10)/10)?(Math.round(data.rain*10)/10):"Sin lluvia";
+    // let jsonRain = data.rain
+    // let {'1h' : oneH} = data.rain;
+    // console.log(oneH);
+    let rain = (data.rain)
+        ?(Math.round(data.rain['1h']*10)/10)
+        :"Sin lluvia";
+    // Necesitamos registrar este paso que nos llevó horas el solucionar la propiedad iniciada con un número no permitido en la sintáxis, lo resolvimos con ['string']. también funcionaba con un alias en una desestructuración individual para esa propiedad.
     let description = data.weather[0].description;
     let wind = Math.round(data.wind.speed*10)/10;
     return {icon, hour , temp_max , temp_min , humidity , rain , wind , description};
 };
 
-console.log("Retorno de objeto customizado a un valor por variable, posición 1 del array");
-console.log(blockXhour(data1));
-
-console.log("Prueba de falla del atributo descriptión porque nos da undefined");//finalmente el error estaba en la forma de obtener el atributo "descripción", ya que por el extenso código del json original entendimos que descripción estaba dentro de un sólo objeto, en realidad este objeto a su vez estaba dentro de un array, colocamos "data.weather[0].description" y resolvimos el asunto
-console.dir(data1.weather[0].description);
-
 // Construcción de esqueleto DOM.(TESTS).
 let forecast4d = document.getElementById("forecast4d");
 
-// Función iteradora guardada en una variable para disponer en el DOM.
-let hourRender = dataXhour.map(el=>{
-    return blockXhour(el);
-});
+function render4days(data){for (let i = 0; i < data.length; i+=1) {
+        let dtHour = document.createElement("ul");
+        dtHour.setAttribute("id", "colHr");
+        forecast4d.appendChild(dtHour);
+        const element = data[i];
+        console.log(element);
+        dtHour.innerHTML += "<li class='icon'><img src=http://openweathermap.org/img/wn/"+element.icon+"@2x.png></></li>";
+        dtHour.innerHTML += "<li class='hour'>"+element.hour+"</li>";
+        dtHour.innerHTML += "<li class='tMaxMin'>"+element.temp_max+"/"+element.temp_min+"</li>";
+        dtHour.innerHTML += "<li class='humid'>"+element.humidity+"</li>";
+        dtHour.innerHTML += "<li class='rain'>"+element.rain+"</li>";
+        dtHour.innerHTML += "<li class='wind'>"+element.wind+"</li>";
+        dtHour.innerHTML += "<li class='descr'>"+element.description+"</li>";
+            console.log(element.hour);
+    }
+};
 
-for (let i = 0; i < hourRender.length; i+=1) {
-    let dtHour = document.createElement("ul");
-    forecast4d.appendChild(dtHour);
-    const element = hourRender[i];
-    dtHour.innerHTML += "<li class='icon'><img src=http://openweathermap.org/img/wn/"+element.icon+"@2x.png></></li>";
-    dtHour.innerHTML += "<li class='hour'>"+element.hour+"</li>";
-    dtHour.innerHTML += "<li class='tMaxMin'>"+element.temp_max+"/"+element.temp_min+"</li>";
-    dtHour.innerHTML += "<li class='humid'>"+element.humidity+"</li>";
-    dtHour.innerHTML += "<li class='rain'>"+element.rain+"</li>";
-    dtHour.innerHTML += "<li class='wind'>"+element.wind+"</li>";
-    dtHour.innerHTML += "<li class='descr'>"+element.description+"</li>";
-        console.log(element.hour);
-}
-
-console.log("Datos finales que se van a destinar a la web");
-console.log(hourRender);
-console.dir(hourRender[1]);
+// let hourRender = dataXhour.map(el=>{
+//     console.log(el);
+//     return blockXhour(el);
+// });
+// render4days(hourRender);
+// console.log(render4days(hourRender));

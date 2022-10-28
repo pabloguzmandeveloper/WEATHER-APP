@@ -29,3 +29,28 @@ div .freezz {
 div .dangFreezz {
     background: 5px 2px violet;
 };
+
+/* -------------------------- */
+.clockdate-wrapper {
+    background-color: #333;
+    padding:25px;
+    max-width:350px;
+    width:100%;
+    text-align:center;
+    border-radius:5px;
+    margin:0 auto;
+    margin-top:15%;
+};
+#clock{
+    background-color: #333;
+    font-family: sans-serif;
+    font-size:60px;
+    text-shadow:0px 0px 1px #fff;
+    color:#fff;
+};
+#date {
+    letter-spacing:10px;
+    font-size:24px;
+    font-family:arial,sans-serif;
+    color:rgb(154, 6, 253);
+};
