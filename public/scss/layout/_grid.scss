@@ -1,0 +1,22 @@
+body {
+    font-family: 'Bebas Neue';
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto ;
+    grid-template-areas:
+                        "header"
+                        "main"
+                        "footer";
+
+    header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+}

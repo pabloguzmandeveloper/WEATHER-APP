@@ -1,3 +1,22 @@
+dtHour.innerHTML += 
+"<div class='card' style='width: 18rem;'>"+
+"<img src='http://openweathermap.org/img/wn/"+element.icon+"@2x.png' class='card-img-top' alt='http://openweathermap.org/img/wn/"+element.icon+"@2x.png'>"+
+"<ul class='list-group list-group-flush'>"+
+    "<li class='list-group-item'>"+element.hour+"</li>"+
+    "<li class='list-group-item'>"+element.temp_max+"/"+element.temp_min+"</li>"+
+    "<li class='list-group-item'>"+element.humidity+"</li>"+
+    "<li class='list-group-item'>"+element.rain+"</li>"+
+    "<li class='list-group-item'>"+element.wind+"</li>"+
+    "<li class='list-group-item'>"+element.description+"</li>"+
+"</ul>"+
+"<div class='card-body'>"+
+// <a href="#" class="card-link">Card link</a>
+// <a href="#" class="card-link">Another link</a>
+"</div>"+
+"</div>";
+
+
+
 // dtHour.textContent = "test for ul";
 // Select language.
 

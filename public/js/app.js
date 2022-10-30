@@ -1,13 +1,14 @@
 //Se declaran las constantes para desplegar y obtener informacion del DOM
 const wrapper = document.querySelector(".wrapper"),
-infoTxt = document.querySelector(".info-txt"),
-CITY = document.querySelector("input"),
-LOCATION = document.querySelector("button"),
-clima = wrapper.querySelector(".weather-part"),
-wIcon = clima.querySelector("img");
-let language = "es";
+infoTxt =       document.querySelector(".info-txt"),
+CITY =          document.querySelector("input"),
+LOCATION =      document.querySelector("button"),
+clima =         wrapper.querySelector(".weather-part"),
+wIcon =         clima.querySelector("img");
+let language =  "es";
 
-// Variable que guradará la url con la key integrada.
+// Variables que guradaran key de API OPENWEATERMAP y la ruta url de la misma API.
+const keyAPI ="" // "d8df573a71f861d27a7a93e6e190e8a0"
 let api;
 
 
@@ -24,7 +25,7 @@ CITY.addEventListener("keyup", e =>{
 });
 // Función request a la API por CITY, city como parámetro de la misma. Luego llama a la función fetchData.
 function reqApiCity(city){
-    api = `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&units=metric&lang=${language}&appid=d8df573a71f861d27a7a93e6e190e8a0`;
+    api = `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&units=metric&lang=${language}&appid=${keyAPI}`;
     fetchData();
 };
 
@@ -47,7 +48,7 @@ LOCATION.addEventListener("click", () =>{
 // Función request a la API por coordenadas, variable position como parámetro de la misma. Position contiene las coordenadas obtenidas por IP del browser. Luego llama a la función fetchData.
 function reqApiCoord(position){
     const {latitude, longitude} = position.coords;
-    api = `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${latitude}&lon=${longitude}&lang=${language}&units=metric&appid=659448f530b1011e83f181f7e97df12e`;
+    api = `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${latitude}&lon=${longitude}&lang=${language}&units=metric&appid=${keyAPI}`;
     fetchData();
 };
 
@@ -63,7 +64,9 @@ function errorMessage(error){
 function fetchData(){
     infoTxt.innerText = "Extrayendo datos del clima de la región...";
     infoTxt.classList.add("pending");
-    fetch(api).then(res => res.json()).then(result => weatherData(result)).catch(() =>{
+    fetch(api).then(res => res.json())
+        .then(result => weatherData(result))
+        .catch(() =>{
         infoTxt.innerText = "UPS! surgió algún inconveniente";
         infoTxt.classList.replace("Pendiente", "error");
     });
@@ -78,26 +81,13 @@ function weatherData(data){
     }else{
         //guardamos la ciudad para reutilizarla con el temporizador.
         CITY.value !=""?localStorage.cityStorage = CITY.value : localStorage.cityStorage;
-        //se seleccionan los datos que nos inmportan del json en forma de objetos y arrays
+        //se seleccionan los datos que nos inmportan del json en forma de objetos y arrays para datos clima actual.
         console.log(data);
         const city = data.city.name;
         const country = data.city.country;
         const {description, id} = data.list[0].weather[0];
         const {temp, feels_like, humidity} = data.list[0].main;
-
-        // Segmentamos la información para el bloque de datos de los 4 días (array de datos por hora, particularmente 96hs resultando 4 días de pronóstico).
-        let dataXhour = data.list;
-        console.log(dataXhour);
-        let hourRender = dataXhour.map(el=>{
-            console.log(el);
-            return blockXhour(el);
-        });
-        render4days(hourRender);
-        console.log(render4days(hourRender));
-
-        console.log("Datos finales que se van a destinar a la web");
-        console.log(hourRender);
-
+        // Renderizado CLIMA ACTUAL.
         clima.querySelector(".temp .numb").innerText = Math.floor(temp);
         clima.querySelector(".desc").innerText = description;
         clima.querySelector(".lugar span").innerText = `${city}, ${country}`;
@@ -106,11 +96,23 @@ function weatherData(data){
         infoTxt.classList.remove("Pendiente", "error");
         infoTxt.innerText = "";
         CITY.value = "";
-        wrapper.classList.add("active");
-        // -------------------------------------------------------------
-        // Comenzamos la iteración por cada elemento del array de "dataXhour", para crear otro array con objetos nuevos llamados de la forma que queremos, especificamente se van a llamar con nombre "hour" mas el sufijo en numeros correspondiente a la hora, ej.: hora0, hora1,etc.
-        
+        wrapper.classList.add("active");        
+        // Rederizado CLIMA FUTURO POR HORA.
+        // Segmentamos la información para el bloque de datos de los 4 días (array de datos por hora, particularmente 96hs resultando 4 días de pronóstico).
+        let dataXhour = data.list;
+        // console.log(dataXhour);
         // Función iteradora guardada en una variable para disponer en el DOM.
+        let hourRender = dataXhour.map(el=>{
+            // console.log(el);
+            return blockXhour(el);
+        });
+        render4days(hourRender);
+        // CREAR LOS ESTILOS DE CADA TAG.
+        /* 
+        
+        */
 
+        // console.log("Datos finales que se van a destinar a la web");
+        // console.log(hourRender);
     };
 };

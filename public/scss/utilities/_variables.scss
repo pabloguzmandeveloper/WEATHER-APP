@@ -1,0 +1,70 @@
+// Colors of header
+$navbarHome: pink;
+$navbar-dark: hsla(39, 100%, 51%);
+
+// Colors of body
+$frontAbout: rgb(255, 206, 47);
+
+// Colors of footer
+$colors-footer:(
+    bg-top: #252525,
+    bg-mdd: #000000,
+    bg-end: #000000,
+    color-h5: #ffffff,
+    color-links: rgb(255, 0, 0),
+    color-lk-animat: rgb(3, 250, 106),
+    color-icon-social: rgb(255, 6, 6),
+    color-icon-animat: rgb(3, 250, 106),
+    color-foot-end: #ffffff
+);
+
+// Layout body
+$ly-body:(
+    wd-car-control: 5%,
+    hg-co-cardImg: auto,
+    height-body-index: 70vh,
+    hg-bd-idx-smal: 92vh,
+    hg-car-inn: 70vh
+);
+
+@mixin cardBlock-mobile {
+    height: 22vh;
+    width: 22vh
+}
+
+@mixin cardBlock-tablet {
+    height: 30vh;
+    width: 30vh;
+}
+
+@mixin cardBlock-h-w {
+    height:50vh;
+    width: 50vh;
+}
+
+@mixin cardBlock-explore-h-w {
+    height:40vh;
+    width: 40vh;
+}
+
+// header opacity
+@mixin hd-opacity {
+    opacity: 0.5;
+}
+
+// backgroud video views
+@mixin bg-video-view {    
+    display: flex;    
+    position: fixed;
+    z-index: -1;
+    opacity: 0.5;
+    min-width: 100vw;
+    max-width: 100vw;
+    justify-content: center;    
+    overflow: hidden;
+}
+
+// footer views
+@mixin footer-view {
+    opacity: 0.9;
+}
