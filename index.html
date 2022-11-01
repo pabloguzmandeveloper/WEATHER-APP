@@ -6,386 +6,421 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://img.icons8.com/officel/80/000000/afternoon.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="public/img/temperature.png">
+    <link rel="stylesheet" href="public/scss/style.css">
     <title>Sencilla aplicación del clima</title>
     <script src=https://cdn.jsdelivr.net/npm/luxon@3.0.4/build/global/luxon.min.js></script>
 </head>
 <body onload="startTime()">
-    <header>
-        <button id="langEspa">ES</button>
-        <button class="langEngl">EN</button>
-    </header>
+
     <main>
-        <section id="dataMacro">
-            <div id="time">
-                <div id="clockdate">
-                    <div class="clockdate-wrapper">
-                        <div id="clock"></div>
-                        <div id="date"></div>
+        <data-principal class="wrapper">
+            <section id="dataMacro">
+                <div id="time">
+                    <div id="clockdate">
+                        <div class="clockdate-wrapper">
+                            <div id="clock"></div>
+                            <div id="date"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="cityShow">
-            </div>
-            <div id="weather">
-            </div>
-        </section>
-        <section id="dataDetail">
-            <div id="data1"></div>
-            <div id="search">
-                <input id="citySearch" type="text" spellcheck="false" placeholder="Escribe tu ciudad de consulta" required>
-                <button class="geoFind">Obtener datos del clima según tu geoubicación</button></div>
-            <div id="data2"></div>
-        </section>
+                <div id="cityShow">
+                    <div class="pod">
+                        <div class="sun">Salida-Puesta</div>
+                        <div class="sunrise">
+                            <div>
+                                <img src="public/img/sunrise.png" alt="sunrise" />
+                                <div class="sunriseDt">08:20</div>
+                            </div>
+                        </div>
+                        <div class="sunset">
+                            <div>
+                                <img src="public/img/sunset.png" alt="sunrise" />
+                                <div class="sunsetDt">10:20</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cityTemp">
+                        <div class="cityCtry">
+                            <div class="cityDt">CIUDAD Y PAIS</div>
+                        </div>
+                        <div class="blockTemp">
+                            <div class="temp">
+                                <div class="tempDt">38.9 ºC</div>
+                            </div>
+                            <div class="feels_like">
+                                <div class="flTxt">Sensación térmica</div>
+                                <div class="flDt">40.5°C</div>
+                            </div>
+                        </div>
 
-        <div class="wrapper" id="contenedor">
-            <p class="info-txt"></p>
-            <div >
-                <section class="weather-part mt-4">
-                    <div class="temp">
-                    <span>Temperatura&nbsp;</span>
-                    <span class="numb"></span>
-                    <span class="deg">°</span>C
                     </div>
-                    
-                    <div class="temp">
-                    <span>Sensación térmica&nbsp;</span>
-                    <span class="numb-2">_</span>
-                    <span class="deg">°</span>C
+                </div>
+                <div id="weather">
+                    <div class="humMacr">
+                        <div class="humTxt">Humedad</div>
+                        <div class="humDt">89 %</div>
                     </div>
-                    
-                    <div class="hum">
-                    <span>Humedad &nbsp;</span>
-                    <span class="hum-2"></span>
+                    <div class="iconMxMn">
+                        <img src="public/img/minmax.png" alt="minmax"></div>
+                    <div class="maxMinDt">
+                        <div class="maxTemp">29.5 ºC</div>
+                        <div class="minTemp">22.6 ºC</div>
                     </div>
-                    
-                    <div class="desc "></div>
-                    
-                    <div class="lugar">
-                    <span></span>
+                </div>
+            </section>
+            <section id="dataDetail">
+                    <div class="pop">
+                        <div class="titlePop">Prob. precipitaciones</div>
+                        <div class="popIcon">
+                            <div class="popDt">89 %</div>
+                        </div>
+                        <div class="titlePress">Presión atmosférica</div>
+                        <div class="pressureDt"></div>
                     </div>
-                </section>
-            </div>
-        </div>
+
+                    <div class="search">
+                        <div class="srchTitle">CLIMA POR CIUDAD</div>
+                        <div id="search">
+                            <input id="citySearch" type="text" spellcheck="false" placeholder="Escribe una ciudad de consulta" required>
+                            <button class="geoFind">CLIMA POR GEOLOCALIZACIÓN</button>
+                            <div class="info-Text">TestError</div>
+                        </div>
+                    </div>
+
+                    <div class="windVisib">
+                        <div class="wind">
+                            <img src="public/img/wind-svgrepo-com.svg" alt="wind">
+                            <div class="windDt">108.5 km/h</div>
+                        </div>
+                        <div class="visib">
+                            <div class="visibTxt">VISIBILIDAD</div>
+                            <div class="visibDt">1000 km</div>
+                        </div>
+                    </div>
+                
+            </section>
+        </data-principal>
 
         <section id="forecast4d">
-            
-            <ul id="references">
-                <li class="hourRef">Hora/Día</li>
-                <li class="icon"><img src="http://openweathermap.org/img/wn/10d@2x.png" id="IMG_66" alt='' /></li>             
-                <li class="tMaxMinRef">T.Max/Min °C</li>
-                <li class="humidRef">Humedad %</li>
-                <li class="rainRef">Lluvias mm/h</li>
-                <li class="windRef">Vientos km/h</li>
-                <li class="descrRef">Descripción</li>
-            </ul>
-            <div id="forecastAPI">
-                <ul class="colHr">
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" id="IMG_66" alt='' />
-                    </li>                
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
+            <h2>PRONOSTICO EXTENDIDO POR HORA HASTA 4 DÍAS</h2>
+            <article class="block4d">            
+                <ul id="references">
+                    <li class="hourRef">Hora/Día</li>
+                    <li class="icon"><img src="http://openweathermap.org/img/wn/10d@2x.png" id="IMG_66" alt='' /></li>             
+                    <li class="tMaxMinRef">T.Max/Min °C</li>
+                    <li class="humidRef">Humedad %</li>
+                    <li class="rainRef">Lluvias mm/h</li>
+                    <li class="windRef">Vientos km/h</li>
+                    <li class="descrRef">Descripción</li>
                 </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" id="IMG_75" alt='' />
-                    </li>                
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" id="IMG_84" alt='' />
-                    </li>                
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04d@2x.png" id="IMG_93" alt='' />
-                    </li>
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        18
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04d@2x.png" id="IMG_102" alt='' />
-                    </li>                
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        19
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04d@2x.png" id="IMG_111" alt='' />
-                    </li>
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    </li>
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_120" alt='' />
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_129" alt=''/>
-                    </li>
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_138" alt='' />
-                    </li>                
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_147" alt='' />
-                    </li>                
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    </li>
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_156" alt='' />                
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_165" alt='' />
-                    </li>                
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-                <ul class="colHr">
-                    <li class= "hour">
-                        14
-                    </li>
-                    <li class= "icon">
-                        <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_174" alt='' />
-                    </li>                
-                    <li class= "tMaxMin">
-                        23.7-23.6
-                    </li>
-                    <li class= "humid">
-                        94
-                    </li>
-                    <li class= "rain">
-                        0.6
-                    </li>
-                    <li class= "wind">
-                        1.7
-                    </li>
-                    <li class= "descr">
-                        lluvia ligera
-                    </li>
-                </ul>
-            </div>
+                <div id="forecastAPI">
+                    <!-- <ul class="colHr">
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="IMG_66" alt='' />
+                        </li>                
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="IMG_75" alt='' />
+                        </li>                
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="IMG_84" alt='' />
+                        </li>                
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04d@2x.png" id="IMG_93" alt='' />
+                        </li>
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            18
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04d@2x.png" id="IMG_102" alt='' />
+                        </li>                
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            19
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04d@2x.png" id="IMG_111" alt='' />
+                        </li>
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        </li>
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_120" alt='' />
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_129" alt=''/>
+                        </li>
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_138" alt='' />
+                        </li>                
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_147" alt='' />
+                        </li>                
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        </li>
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_156" alt='' />                
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_165" alt='' />
+                        </li>                
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul>
+                    <ul class="colHr">
+                        <li class= "hour">
+                            14
+                        </li>
+                        <li class= "icon">
+                            <img src="http://openweathermap.org/img/wn/04n@2x.png" id="IMG_174" alt='' />
+                        </li>                
+                        <li class= "tMaxMin">
+                            23.7-23.6
+                        </li>
+                        <li class= "humid">
+                            94
+                        </li>
+                        <li class= "rain">
+                            0.6
+                        </li>
+                        <li class= "wind">
+                            1.7
+                        </li>
+                        <li class= "descr">
+                            lluvia ligera
+                        </li>
+                    </ul> -->
+                </div>
+            </article>
         </section>
     </main>
-    <footer></footer>
     <script src="public/js/app.js"></script>
     <script src="public/js/forecast4d.js"></script>    
     <script src="public/js/updateTimer.js"></script>
+    <script src="public/js/style.js"></script>
 </body>
 </html>

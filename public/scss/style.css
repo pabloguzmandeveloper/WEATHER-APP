@@ -1,0 +1,579 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Bebas Neue";
+}
+
+body main #carouselIndexHome {
+  height: 70vh;
+}
+
+body #dataMacro {
+  display: inline-grid;
+  grid-template-rows: 20vh;
+  grid-template-columns: 0.75fr 1fr 1fr;
+  grid-template-areas: "time cityShow weather";
+}
+body #dataMacro #time {
+  grid-area: time;
+}
+body #dataMacro #cityShow {
+  grid-area: cityShow;
+}
+body #dataMacro #weather {
+  grid-area: weather;
+}
+body #dataDetail {
+  display: inline-grid;
+  grid-template-rows: 20vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "pop search windVisib";
+}
+body #dataDetail .pop {
+  grid-area: pop;
+}
+body #dataDetail .search {
+  grid-area: search;
+}
+body #dataDetail .windVisib {
+  grid-area: windVisib;
+}
+
+body nav .navbar-header-top {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+body nav .navbar-header-top a {
+  font-size: 25px;
+  font-weight: bolder;
+  color: pink;
+  margin-left: 3vw;
+  width: 90%;
+}
+body nav .navbar-header-top a .nftNone {
+  display: none;
+}
+body nav .navbar-header-top .navbar-toggler {
+  border: white solid;
+}
+body nav .navbar-header-top .music-button {
+  margin-left: 2vw;
+  margin-right: 1vw;
+  height: auto;
+  width: auto;
+  border: 0px;
+  background-color: transparent;
+  color: white;
+}
+body nav .navbar-header-top ul li a {
+  color: white;
+}
+
+#player {
+  display: none;
+}
+
+.navbar-dark {
+  background-color: rgb(0, 0, 0);
+}
+
+header {
+  background-color: hsl(39deg, 100%, 51%);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header .header__h1 {
+  display: flex;
+  font-weight: bolder;
+  font-size: 5vw;
+  margin-top: 3%;
+}
+header .header__h2 {
+  font-weight: bolder;
+  font-size: 5vw;
+}
+
+header nav button {
+  width: 5%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+main #dataMacro #time {
+  display: flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 30vw;
+  height: 100%;
+}
+main #dataMacro #time #clockdate .clockdate-wrapper {
+  background-color: rgba(0, 254, 42, 0.214);
+  padding: 25px;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 0.5vh;
+  margin-left: 0.5vw;
+}
+main #dataMacro #time #clockdate .clockdate-wrapper #clock {
+  background-color: rgb(255, 185, 9);
+  font-family: sans-serif;
+  font-size: 20px;
+  text-shadow: 0px 0px 2px #fff;
+  color: rgb(0, 0, 0);
+}
+main #dataMacro #time #clockdate .clockdate-wrapper #date {
+  height: 24px;
+  font-size: 20px;
+  font-family: arial, sans-serif;
+  color: rgb(253, 6, 134);
+}
+main #dataMacro #cityShow {
+  display: flex;
+  width: 40vw;
+  height: 100%;
+}
+main #dataMacro #cityShow .pod {
+  background-color: rgba(110, 251, 2, 0.817);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  min-width: 80px;
+}
+main #dataMacro #cityShow .pod .sun {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+main #dataMacro #cityShow .pod .sunrise div {
+  display: flex;
+  flex-direction: row;
+  font-size: 25px;
+}
+main #dataMacro #cityShow .pod .sunrise div img {
+  width: 30px;
+  margin-right: 5px;
+}
+main #dataMacro #cityShow .pod .sunset div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+main #dataMacro #cityShow .pod .sunset div img {
+  width: 30px;
+  margin-right: 5px;
+}
+main #dataMacro #cityShow .cityTemp {
+  background: rgba(0, 255, 51, 0.528);
+  width: 30vw;
+}
+main #dataMacro #cityShow .cityTemp .cityCtry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #000;
+  margin-top: 0px;
+  width: 100%;
+  height: 30px;
+  font-size: 25px;
+}
+main #dataMacro #cityShow .cityTemp .blockTemp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #000;
+  height: 70%;
+}
+main #dataMacro #cityShow .cityTemp .blockTemp .temp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  font-size: 40px;
+}
+main #dataMacro #cityShow .cityTemp .blockTemp .feels_like {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+main #dataMacro #cityShow .cityTemp .blockTemp .feels_like .flDt {
+  margin-top: 5px;
+  font-size: 30px;
+}
+main #dataMacro #weather {
+  background: pink;
+  display: flex;
+  width: 33vw;
+  height: 100%;
+}
+main #dataMacro #weather .humMacr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 33%;
+}
+main #dataMacro #weather .humMacr .humTxt {
+  margin-top: 10px;
+  font-size: 20px;
+}
+main #dataMacro #weather .humMacr .humDt {
+  margin-top: 10px;
+  font-size: 30px;
+}
+main #dataMacro #weather .iconMxMn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-left: 15px;
+}
+main #dataMacro #weather .iconMxMn img {
+  display: flex;
+  width: 70px;
+  margin: 0;
+}
+main #dataMacro #weather .maxMinDt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 33%;
+}
+main #dataMacro #weather .maxMinDt .maxTemp {
+  margin: bottom 2px;
+  font-size: 30px;
+}
+main #dataMacro #weather .maxMinDt .minTemp {
+  margin: bottom 2px;
+  font-size: 30px;
+}
+main #dataDetail {
+  border: solid 1px #000;
+}
+main #dataDetail .pop {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: solid 1px #000;
+}
+main #dataDetail .pop .titlePop {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 5px;
+}
+main #dataDetail .pop .popIcon {
+  border: solid 1px #000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  height: 50%;
+}
+main #dataDetail .pop .popIcon img {
+  height: 50%;
+}
+main #dataDetail .pop .popIcon .popDt {
+  font-size: 30px;
+}
+main #dataDetail .search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: solid 1px #000;
+  text-align: center;
+}
+main #dataDetail .search .srchTitle {
+  font-size: 20px;
+  top: 2%;
+}
+main #dataDetail .search #citySearch {
+  height: 25px;
+  width: 250px;
+  min-width: 150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+main #dataDetail .search .messErr {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 30px;
+  align-items: center;
+}
+main #dataDetail .windVisib {
+  border: solid 1px #000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+main #dataDetail .windVisib .wind img {
+  width: 40px;
+}
+main #dataDetail .windVisib .wind .windDt {
+  font-size: 30px;
+}
+main #dataDetail .windVisib .visib .visibTxt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+main #dataDetail .windVisib .visib .visibDt {
+  font-size: 30px;
+}
+main #forecast4d {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  text-align: center;
+}
+main #forecast4d h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+main #forecast4d .block4d {
+  display: flex;
+}
+main #forecast4d .block4d #references {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  font-size: 14px;
+  background-color: rgba(67, 255, 67, 0.8);
+  list-style: none;
+  border: 0.5px solid black;
+  border-radius: 15px;
+}
+main #forecast4d .block4d #references .hourRef {
+  background: rgba(0, 251, 255, 0.456) 39%;
+  height: 20px;
+  text-align: center;
+}
+main #forecast4d .block4d #references .tMaxMinRef {
+  text-align: center;
+  height: 25px;
+  background-image: linear-gradient(45deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #references .humidRef {
+  text-align: center;
+}
+main #forecast4d .block4d #references .rainRef {
+  text-align: center;
+  background-image: linear-gradient(200deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #references .windRef {
+  text-align: center;
+}
+main #forecast4d .block4d #references .descrRef {
+  text-align: center;
+  background-image: linear-gradient(175deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #forecastAPI {
+  display: flex;
+  width: auto;
+  height: 250px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  margin: auto 0;
+  text-align: center;
+}
+main #forecast4d .block4d #forecastAPI .colHr {
+  display: block;
+  height: 100%;
+  font-size: 14px;
+  background-color: rgba(67, 255, 67, 0.8);
+  list-style: none;
+  border: 0.5px solid black;
+  border-radius: 15px;
+  border-top-right-radius: 40% 20%;
+}
+main #forecast4d .block4d #forecastAPI .colHr .hour {
+  background: rgba(0, 251, 255, 0.456) 39%;
+  font-size: 18px;
+}
+main #forecast4d .block4d #forecastAPI .colHr .tMaxMin {
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+  height: 24px;
+  font-size: 24px;
+  background-image: linear-gradient(45deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #forecastAPI .colHr .rain {
+  background-image: linear-gradient(200deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #forecastAPI .colHr .descr {
+  background-image: linear-gradient(175deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+
+.footer__top {
+  background-color: #252525;
+}
+
+.footer__middle {
+  background-color: #000000;
+}
+
+.footer__end {
+  background-color: #000000;
+  align-items: center;
+}
+
+.footer__top {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__top .footer__app {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  margin-left: 5%;
+}
+.footer__top .footer__app h5 {
+  font-size: 150%;
+  text-align: center;
+  color: #ffffff;
+}
+.footer__top .footer__app .imgapp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.footer__top .footer__app .imgapp a {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer__top .footer__app .imgapp a img {
+  width: 100%;
+}
+.footer__top .img-mobile {
+  display: flex;
+  margin-bottom: 0;
+}
+.footer__top .img-mobile .footer__img {
+  margin-top: 20%;
+  margin-bottom: 0%;
+  width: 100%;
+}
+.footer__top .footer__qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 5%;
+}
+.footer__top .footer__qr h5 {
+  font-size: 150%;
+  text-align: center;
+  color: #ffffff;
+}
+.footer__top .footer__qr img {
+  margin-top: 1%;
+  width: 150px;
+}
+
+.footer__middle {
+  display: flex;
+  flex-direction: row;
+}
+.footer__middle .footer__links {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+.footer__middle .footer__links h5 {
+  font-size: 150%;
+  text-align: center;
+  color: #ffffff;
+}
+.footer__middle .footer__links a {
+  font-size: 1.5em;
+  color: rgb(255, 0, 0);
+  display: flex;
+  flex-direction: column;
+}
+.footer__middle .footer__links a:hover {
+  -webkit-animation-name: "animate__animated animate__pulse";
+          animation-name: "animate__animated animate__pulse";
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  transition: color 0.3s ease;
+  color: rgb(3, 250, 106);
+}
+.footer__middle .footer__social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+}
+.footer__middle .footer__social h5 {
+  display: flex;
+  align-items: flex-start;
+  font-size: 150%;
+  text-align: center;
+  color: #ffffff;
+}
+.footer__middle .footer__social nav {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  height: 5%;
+}
+.footer__middle .footer__social i {
+  font-size: 50px;
+  display: flex;
+  transition: all 0.8s ease;
+  color: rgb(255, 6, 6);
+}
+.footer__middle .footer__social i:hover {
+  color: rgb(3, 250, 106);
+  font-size: 60px;
+  transition: all 1s ease;
+}
+
+.footer__end {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 16px;
+}/*# sourceMappingURL=style.css.map */

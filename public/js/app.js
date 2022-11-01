@@ -1,14 +1,25 @@
 //Se declaran las constantes para desplegar y obtener informacion del DOM
-const wrapper = document.querySelector(".wrapper"),
-infoTxt =       document.querySelector(".info-txt"),
-CITY =          document.querySelector("input"),
-LOCATION =      document.querySelector("button"),
-clima =         wrapper.querySelector(".weather-part"),
-wIcon =         clima.querySelector("img");
-let language =  "es";
+let language    = "es";
+const wrapper   = document.querySelector(".wrapper");
+const CITY      = document.querySelector("input");
+const LOCATION  = document.querySelector("button");
+const infoTxt   = document.querySelector(".info-Text");
+const sunrise   = document.querySelector(".sunriseDt");
+const sunset    = document.querySelector(".sunsetDt");
+const cityDt    = document.querySelector(".cityDt");
+const tempDt    = document.querySelector(".tempDt");
+const feelsLike = document.querySelector(".flDt");
+const humidityDt= document.querySelector(".humDt");
+const maxTemp   = document.querySelector(".maxTemp");
+const minTemp   = document.querySelector(".minTemp");
+const popIcon   = document.querySelector(".popIcon");
+const popDt     = document.querySelector(".popDt");
+const pressureDt= document.querySelector(".pressureDt");
+const windDt    = document.querySelector(".windDt");
+const visibDt   = document.querySelector(".visibDt");
 
 // Variables que guradaran key de API OPENWEATERMAP y la ruta url de la misma API.
-const keyAPI ="" // "d8df573a71f861d27a7a93e6e190e8a0"
+const keyAPI = "d8df573a71f861d27a7a93e6e190e8a0"
 let api;
 
 
@@ -72,7 +83,7 @@ function fetchData(){
     });
 };
 
-// ------------------------------------------------------------------
+
 // Obtenemos información de API del clima y la almacenamos en las siguientes variables. La fución weatherData despliega en el DOM los datos obtenidos de la API api.openweathermap.org.
 function weatherData(data){
     if(data.cod == "404"){
@@ -83,16 +94,32 @@ function weatherData(data){
         CITY.value !=""?localStorage.cityStorage = CITY.value : localStorage.cityStorage;
         //se seleccionan los datos que nos inmportan del json en forma de objetos y arrays para datos clima actual.
         console.log(data);
+        const dataSunrise = luxon.DateTime.fromSeconds(data.city.sunrise).toFormat('HH:mm');
+        const dataSunset = luxon.DateTime.fromSeconds(data.city.sunset).toFormat('HH:mm');
+        console.log(dataSunrise);
         const city = data.city.name;
+        console.log(city)
         const country = data.city.country;
         const {description, id} = data.list[0].weather[0];
-        const {temp, feels_like, humidity} = data.list[0].main;
+        const {temp, feels_like, humidity, temp_max, temp_min, pressure} = data.list[0].main;
+        const popRain = data.list[0].pop;
+        const wind = data.list[0].wind.speed;
+        const visibility = data.list[0].visibility;
+        console.log(temp_max)
         // Renderizado CLIMA ACTUAL.
-        clima.querySelector(".temp .numb").innerText = Math.floor(temp);
-        clima.querySelector(".desc").innerText = description;
-        clima.querySelector(".lugar span").innerText = `${city}, ${country}`;
-        clima.querySelector(".temp .numb-2").innerText = Math.floor(feels_like);
-        clima.querySelector(".hum .hum-2").innerText = `${humidity}%`;
+        sunrise.innerText = dataSunrise;
+        sunset.innerText = dataSunset;
+        cityDt.innerText = city+", "+country;
+        tempDt.innerText = Math.round(temp*10)/10+"°C";
+        feelsLike.innerText = Math.round(feels_like*10)/10+"°C";
+        humidityDt.innerText = humidity+"%";
+        maxTemp.innerText = Math.round(temp_max);
+        minTemp.innerText = Math.round(temp_min);
+        popDt.innerText = popRain*100+"%";
+        umbrella(popRain);
+        pressureDt.innerText = pressure+"hPa";
+        windDt.innerText = wind+" km/h";
+        visibDt.innerText = visibility+"km";
         infoTxt.classList.remove("Pendiente", "error");
         infoTxt.innerText = "";
         CITY.value = "";
@@ -100,19 +127,11 @@ function weatherData(data){
         // Rederizado CLIMA FUTURO POR HORA.
         // Segmentamos la información para el bloque de datos de los 4 días (array de datos por hora, particularmente 96hs resultando 4 días de pronóstico).
         let dataXhour = data.list;
-        // console.log(dataXhour);
+        console.log(data.list);
         // Función iteradora guardada en una variable para disponer en el DOM.
         let hourRender = dataXhour.map(el=>{
-            // console.log(el);
             return blockXhour(el);
         });
         render4days(hourRender);
-        // CREAR LOS ESTILOS DE CADA TAG.
-        /* 
-        
-        */
-
-        // console.log("Datos finales que se van a destinar a la web");
-        // console.log(hourRender);
     };
 };

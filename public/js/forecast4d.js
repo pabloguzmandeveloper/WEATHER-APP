@@ -1,35 +1,34 @@
 // Función de construcción de datos preparados para renderizar en el DOM.
 function blockXhour(data){
-    let icon = data.weather[0].icon
+    let icon        = data.weather[0].icon
     let timestamp4d = luxon.DateTime.fromSeconds(data.dt).toFormat('HH');
-    let hour = timestamp4d==='00'
-                ?luxon.DateTime.fromSeconds(data.dt).toFormat('d MMM')
-                :timestamp4d;
-    // console.log(hour);
-    let temp_max = Math.round(data.main.temp_max*10)/10 ;
-    let temp_min = Math.round(data.main.temp_min*10)/10;
-    let humidity = data.main.humidity;
-    let rain = (data.rain)
-        ?(Math.round(data.rain['1h']*10)/10)
-        :"Sin lluvia";
-    // Necesitamos registrar este paso que nos llevó horas el solucionar la propiedad iniciada con un número no permitido en la sintáxis, lo resolvimos con ['string']. también funcionaba con un alias en una desestructuración individual para esa propiedad.
+    let hour        = timestamp4d==='00'
+                        ?luxon.DateTime.fromSeconds(data.dt).toFormat('d MMM')
+                        :timestamp4d;
+    let temp_max    = Math.round(data.main.temp_max*10)/10 ;
+    let temp_min    = Math.round(data.main.temp_min*10)/10;
+    let humidity    = data.main.humidity;
+    let rain        = (data.rain)
+                        ?(Math.round(data.rain['1h']*10)/10)
+                        :"Sin lluvia";
+    // Registramos este paso que nos llevó horas el solucionar la propiedad iniciada con un número no permitido en la sintáxis, lo resolvimos con ['string']. también funcionaba con un alias en una desestructuración individual para esa propiedad.
     let description = data.weather[0].description;
-    let wind = Math.round(data.wind.speed*10)/10;
+    let wind        = Math.round(data.wind.speed*10)/10;
     return {icon, hour , temp_max , temp_min , humidity , rain , wind , description};
 };
 
 // Construcción de esqueleto DOM.(TESTS).
-let forecast4d = document.getElementById("forecast4d");
+const forecastAPI = document.getElementById("forecastAPI");
 function render4days(data){
     if (forecastAPI.childElementCount > 0) {
         forecastAPI.innerHTML = "";
         };    
     for (let i = 0; i < data.length; i+=1) {
-        let dtHour = document.createElement("ul");
+        let dtHour    = document.createElement("ul");
         dtHour.setAttribute("class", "colHr");
         forecastAPI.appendChild(dtHour);
         const element = data[i];
-        // console.log(element);
+        console.log(element);
         dtHour.innerHTML += "<li class='hour'>"+element.hour+"</li>";
         dtHour.innerHTML += "<li class='icon'><img src=http://openweathermap.org/img/wn/"+element.icon+"@2x.png alt='iconWeather'></></li>";
         dtHour.innerHTML += "<li class='tMaxMin'>"+element.temp_max+"-"+element.temp_min+"</li>";
@@ -37,7 +36,7 @@ function render4days(data){
         dtHour.innerHTML += "<li class='rain'>"+element.rain+"</li>";
         dtHour.innerHTML += "<li class='wind'>"+element.wind+"</li>";
         dtHour.innerHTML += "<li class='descr'>"+element.description+"</li>";
-            // console.log(element.hour);
+            console.log(element.hour);
     }
 };
 /* DOCUMENTACIÓN: REFERENCIAS DE CLAVES-PROPIEDADES

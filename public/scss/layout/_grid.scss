@@ -1,22 +1,39 @@
 body {
-    font-family: 'Bebas Neue';
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto ;
-    grid-template-areas:
-                        "header"
-                        "main"
-                        "footer";
+    #dataMacro {
+        display: inline-grid;            
+            grid-template-rows: 20vh;
+            grid-template-columns: 0.75fr 1fr 1fr;
+            grid-template-areas: "time cityShow weather";
 
-    header {
-        grid-area: header;
+        #time {
+            grid-area: time;
+        }
+
+        #cityShow {
+            grid-area: cityShow;
+        }
+
+        #weather {
+            grid-area: weather;
+        }
     }
 
-    main {
-        grid-area: main;
-    }
+    #dataDetail {
+        display: inline-grid;            
+        grid-template-rows: 20vh;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "pop search windVisib";
 
-    footer {
-        grid-area: footer;
+        .pop {
+            grid-area: pop;
+        }
+
+        .search {
+            grid-area: search;
+        }
+
+        .windVisib {
+            grid-area: windVisib;
+        }
     }
 }
