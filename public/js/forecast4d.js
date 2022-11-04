@@ -30,7 +30,6 @@ function render4days(data){
         dtHour.setAttribute("class", "colHr");
         forecastAPI.appendChild(dtHour);
         const element = data[i];
-        console.log(element);
         dtHour.innerHTML += "<li class='hour'>"+element.hour+"</li>";
         dtHour.innerHTML += "<li class='icon'><img src=http://openweathermap.org/img/wn/"+element.icon+"@2x.png alt='iconWeather'></></li>";
         dtHour.innerHTML += "<li class='tMaxMin'>"+element.temp_max+"-"+element.temp_min+"°C</li>";
@@ -38,7 +37,6 @@ function render4days(data){
         dtHour.innerHTML += "<li class='rain'>"+element.rain+"</li>";
         dtHour.innerHTML += "<li class='wind'>"+element.wind+"km/h</li>";
         dtHour.innerHTML += "<li class='descr'>"+element.description+"</li>";
-            console.log(element.hour);
     }
 };
 /* DOCUMENTACIÓN: REFERENCIAS DE CLAVES-PROPIEDADES

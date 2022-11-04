@@ -6,6 +6,6 @@ Utilizamos estructura de html sencilla, consumimos una API del proveedor Open We
 
 El nombre elegido para la app es Beautiful Sky, y con la abreviación para un logo con iniciales BS.
 
-Avanzando con el proyecto pretendemos crear la app como first mobile, y con una presentación inicial del clima por geolocalización automática, la que se puede cambiar con pasar el dato de la ciudad deseada o localización por ip de la red.
+Avanzando con el proyecto pretendemos crear la app como first mobile y logramos solo firt desktop, y con una presentación inicial con una ciudad cargada en una consulta previa grabada en local storage, también se puede hacer la consulta por geolocalización por ip del dispositivo.
 
-Este bloque principal contiene los datos más completos del clima del momento actual, con dos íconos o figuras de 
+Este bloque principal contiene los datos más completos del clima del momento actual, con dos íconos o figuras del estado del tiempo.

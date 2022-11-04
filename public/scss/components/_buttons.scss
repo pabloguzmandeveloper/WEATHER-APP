@@ -1,0 +1,26 @@
+main {
+    .wrapper {
+        .geoFind {
+            font-size: 25px;
+        }
+    }
+
+    .bg-change {
+        h3 {
+            background: map-get($colors-background, bg-blocks);
+        }
+
+        .bt-next {
+            font-size: 30px;
+            height: 40px;
+            width: 200px;
+        }
+
+        .bt-prev {
+            font-size: 30px;
+            height: 40px;
+            width: 200px;
+        }
+    }
+
+}

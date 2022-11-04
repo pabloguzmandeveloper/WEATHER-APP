@@ -4,6 +4,13 @@ main {
     flex-direction: column;
     width: 100vw;
 
+    h1 {
+        font-size: 80px;
+        color: rgb(255, 0, 200);
+        text-shadow: 2px 0 0 rgb(255, 255, 255), -2px 0 0 rgb(255, 255, 255), 0 2px 0 rgb(255, 255, 255), 0 -2px 0 rgb(255, 255, 255), 1px 1px rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255);
+        margin-left: 35px;
+    }
+
     #dataMacro {
         margin:15px;
 
@@ -314,6 +321,7 @@ main {
         h2 {
             font-size: 25px;
             margin-bottom: 10px;
+            background: map-get($colors-background, bg-blocks);
         }
 
         .block4d {

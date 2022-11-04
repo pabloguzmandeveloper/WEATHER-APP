@@ -93,20 +93,15 @@ function weatherData(data){
         //guardamos la ciudad para reutilizarla con el temporizador.
         CITY.value !=""?localStorage.cityStorage = CITY.value : localStorage.cityStorage;
         //se seleccionan los datos que nos inmportan del json en forma de objetos y arrays para datos clima actual.
-        console.log(data);
         const dataSunrise = luxon.DateTime.fromSeconds(data.city.sunrise).toFormat('HH:mm');
         const dataSunset = luxon.DateTime.fromSeconds(data.city.sunset).toFormat('HH:mm');
-        console.log(dataSunrise);
         const city = data.city.name;
-        console.log(city)
         const country = data.city.country;
         const {description, id} = data.list[0].weather[0];
         const {temp, feels_like, humidity, temp_max, temp_min, pressure} = data.list[0].main;
         const popRain = data.list[0].pop;
-        console.log(popRain);
         const wind = data.list[0].wind.speed;
         const visibility = data.list[0].visibility;
-        console.log(temp_max)
         // Renderizado CLIMA ACTUAL.
         sunrise.innerText = dataSunrise+"hs";
         sunset.innerText = dataSunset+"hs";
@@ -128,7 +123,6 @@ function weatherData(data){
         // Rederizado CLIMA FUTURO POR HORA.
         // Segmentamos la información para el bloque de datos de los 4 días (array de datos por hora, particularmente 96hs resultando 4 días de pronóstico).
         let dataXhour = data.list;
-        console.log(data.list);
         // Función iteradora guardada en una variable para disponer en el DOM.
         let hourRender = dataXhour.map(el=>{
             return blockXhour(el);

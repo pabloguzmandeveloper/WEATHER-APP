@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta keywords="clima, tiempo, lluvia, temperatura, humedad">
-    <meta description="Sencilla aplicación para consultar el estado del clima por ubicación">
+    <meta description="Sencilla aplicación para consultar el estado del clima por ciudad y ubicación">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
     </div>
 
     <main>
-
+        <h1>BEATIFULSKY</h1>
         <data-principal class="wrapper">
             <section id="dataMacro">
                 <div id="time">
@@ -128,10 +128,17 @@
                 </div>
             </article>
         </section>
+
+        <section class="bg-change">
+            <h3>Cambio de fondo de pantalla</h3>
+            <button class="bt-prev" type="button">Atras</button>
+            <button class="bt-next" type="button">Adelante</button>
+        </section>
     </main>
     <script src="public/js/app.js"></script>
     <script src="public/js/forecast4d.js"></script>    
     <script src="public/js/updateTimer.js"></script>
     <script src="public/js/style.js"></script>
+    <script src="public/js/videoChange.js"></script>
 </body>
 </html>
