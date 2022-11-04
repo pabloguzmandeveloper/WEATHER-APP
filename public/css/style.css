@@ -347,7 +347,7 @@ main #dataDetail .windVisib .visib .visibDt {
 main #forecast4d {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
 }
 main #forecast4d h2 {
@@ -357,7 +357,7 @@ main #forecast4d h2 {
 }
 main #forecast4d .block4d {
   display: flex;
-  margin: 15px;
+  margin: 10px;
 }
 main #forecast4d .block4d #references {
   display: block;
