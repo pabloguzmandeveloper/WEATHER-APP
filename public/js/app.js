@@ -12,7 +12,7 @@ const feelsLike = document.querySelector(".flDt");
 const humidityDt= document.querySelector(".humDt");
 const maxTemp   = document.querySelector(".maxTemp");
 const minTemp   = document.querySelector(".minTemp");
-const popIcon   = document.querySelector(".popIcon");
+const popImg   = document.querySelector(".popImg");
 const popDt     = document.querySelector(".popDt");
 const pressureDt= document.querySelector(".pressureDt");
 const windDt    = document.querySelector(".windDt");
@@ -103,18 +103,19 @@ function weatherData(data){
         const {description, id} = data.list[0].weather[0];
         const {temp, feels_like, humidity, temp_max, temp_min, pressure} = data.list[0].main;
         const popRain = data.list[0].pop;
+        console.log(popRain);
         const wind = data.list[0].wind.speed;
         const visibility = data.list[0].visibility;
         console.log(temp_max)
         // Renderizado CLIMA ACTUAL.
-        sunrise.innerText = dataSunrise;
-        sunset.innerText = dataSunset;
+        sunrise.innerText = dataSunrise+"hs";
+        sunset.innerText = dataSunset+"hs";
         cityDt.innerText = city+", "+country;
         tempDt.innerText = Math.round(temp*10)/10+"°C";
         feelsLike.innerText = Math.round(feels_like*10)/10+"°C";
         humidityDt.innerText = humidity+"%";
-        maxTemp.innerText = Math.round(temp_max);
-        minTemp.innerText = Math.round(temp_min);
+        maxTemp.innerText = Math.round(temp_max)+"°C Max.";
+        minTemp.innerText = Math.round(temp_min)+"°C Min.";
         popDt.innerText = popRain*100+"%";
         umbrella(popRain);
         pressureDt.innerText = pressure+"hPa";

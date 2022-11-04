@@ -2,9 +2,11 @@
 function blockXhour(data){
     let icon        = data.weather[0].icon
     let timestamp4d = luxon.DateTime.fromSeconds(data.dt).toFormat('HH');
-    let hour        = timestamp4d==='00'
+    let hour        = timestamp4d=='00'
                         ?luxon.DateTime.fromSeconds(data.dt).toFormat('d MMM')
-                        :timestamp4d;
+                        :(timestamp4d=='01'
+                            ?timestamp4d+"hr"
+                            :timestamp4d+"hs");
     let temp_max    = Math.round(data.main.temp_max*10)/10 ;
     let temp_min    = Math.round(data.main.temp_min*10)/10;
     let humidity    = data.main.humidity;
@@ -22,7 +24,7 @@ const forecastAPI = document.getElementById("forecastAPI");
 function render4days(data){
     if (forecastAPI.childElementCount > 0) {
         forecastAPI.innerHTML = "";
-        };    
+        };
     for (let i = 0; i < data.length; i+=1) {
         let dtHour    = document.createElement("ul");
         dtHour.setAttribute("class", "colHr");
@@ -31,10 +33,10 @@ function render4days(data){
         console.log(element);
         dtHour.innerHTML += "<li class='hour'>"+element.hour+"</li>";
         dtHour.innerHTML += "<li class='icon'><img src=http://openweathermap.org/img/wn/"+element.icon+"@2x.png alt='iconWeather'></></li>";
-        dtHour.innerHTML += "<li class='tMaxMin'>"+element.temp_max+"-"+element.temp_min+"</li>";
-        dtHour.innerHTML += "<li class='humid'>"+element.humidity+"</li>";
+        dtHour.innerHTML += "<li class='tMaxMin'>"+element.temp_max+"-"+element.temp_min+"°C</li>";
+        dtHour.innerHTML += "<li class='humid'>"+element.humidity+"%</li>";
         dtHour.innerHTML += "<li class='rain'>"+element.rain+"</li>";
-        dtHour.innerHTML += "<li class='wind'>"+element.wind+"</li>";
+        dtHour.innerHTML += "<li class='wind'>"+element.wind+"km/h</li>";
         dtHour.innerHTML += "<li class='descr'>"+element.description+"</li>";
             console.log(element.hour);
     }

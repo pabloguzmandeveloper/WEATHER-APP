@@ -2,7 +2,7 @@ body {
     #dataMacro {
         display: inline-grid;            
             grid-template-rows: 20vh;
-            grid-template-columns: 0.75fr 1fr 1fr;
+            grid-template-columns: 32vw 33vw 33vw ;
             grid-template-areas: "time cityShow weather";
 
         #time {
@@ -21,7 +21,7 @@ body {
     #dataDetail {
         display: inline-grid;            
         grid-template-rows: 20vh;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 32vw 33vw 33vw;
         grid-template-areas: "pop search windVisib";
 
         .pop {

@@ -1,8 +1,11 @@
 @import "utilities/_variables.scss";
 @import "base/_reset.scss";
+@import "themes/_background.scss";
+@import "themes/_scroll.scss";
 @import "base/_fonts-family.scss";
 @import "layout/_body.scss";
-@import "layout/grid";
+@import "layout/_grid.scss";
 @import "layout/_header.scss";
 @import "layout/_main.scss";
 @import "layout/_footer.scss";
+

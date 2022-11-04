@@ -1,0 +1,53 @@
+.video{
+    position: fixed;
+    z-index: -1;
+    min-height: 100vh;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    // min-width: 100vw;
+    // max-width: 100vw;
+    overflow: hidden;
+}
+
+main {
+    #dataMacro {
+        #time {
+            background-color: map-get($colors-background, bg-blocks);
+        }
+        
+        #cityShow {
+            background-color: map-get($colors-background, bg-blocks);
+        }
+
+        #weather {
+            background-color: map-get($colors-background, bg-blocks);
+        }
+    }
+
+    #dataDetail {
+        .pop {
+            background-color: map-get($colors-background, bg-blocks);
+        }
+
+        .search {
+            background-color: map-get($colors-background, bg-blocks);
+        }
+
+        .windVisib {
+            background-color: map-get($colors-background, bg-blocks);
+        }
+    }
+
+    #forecast4d {
+        .block4d {
+            #references{
+                background-color: map-get($colors-background, bg-blocks);
+            }
+
+            #forecastAPI {
+                background-color: map-get($colors-background, bg-blocks);
+            }
+        }
+    }
+}

@@ -1,0 +1,437 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.video {
+  position: fixed;
+  z-index: -1;
+  min-height: 100vh;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  overflow: hidden;
+}
+
+main #dataMacro #time {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+main #dataMacro #cityShow {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+main #dataMacro #weather {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+main #dataDetail .pop {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+main #dataDetail .search {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+main #dataDetail .windVisib {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+main #forecast4d .block4d #references {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+main #forecast4d .block4d #forecastAPI {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+
+#forecastAPI::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+#forecastAPI::-webkit-scrollbar-button:increment, #forecastAPI::-webkit-scrollbar-button {
+  display: none;
+}
+
+#forecastAPI::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+#forecastAPI::-webkit-scrollbar-thumb {
+  background-color: rgba(244, 21, 214, 0.5333333333);
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+#forecastAPI::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+body {
+  font-family: "Bebas Neue";
+}
+
+body #dataMacro {
+  display: inline-grid;
+  grid-template-rows: 20vh;
+  grid-template-columns: 32vw 33vw 33vw;
+  grid-template-areas: "time cityShow weather";
+}
+body #dataMacro #time {
+  grid-area: time;
+}
+body #dataMacro #cityShow {
+  grid-area: cityShow;
+}
+body #dataMacro #weather {
+  grid-area: weather;
+}
+body #dataDetail {
+  display: inline-grid;
+  grid-template-rows: 20vh;
+  grid-template-columns: 32vw 33vw 33vw;
+  grid-template-areas: "pop search windVisib";
+}
+body #dataDetail .pop {
+  grid-area: pop;
+}
+body #dataDetail .search {
+  grid-area: search;
+}
+body #dataDetail .windVisib {
+  grid-area: windVisib;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+main #dataMacro {
+  margin: 15px;
+}
+main #dataMacro #time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
+}
+main #dataMacro #time #clockdate .clockdate-wrapper {
+  padding: 25px;
+  text-align: center;
+  border-radius: 5px;
+}
+main #dataMacro #time #clockdate .clockdate-wrapper #clock {
+  background-color: rgb(255, 185, 9);
+  font-family: sans-serif;
+  font-size: 4vw;
+  text-shadow: 0px 0px 2px #fff;
+  color: rgb(0, 0, 0);
+}
+main #dataMacro #time #clockdate .clockdate-wrapper #date {
+  font-size: 2vw;
+  font-family: arial, sans-serif;
+  color: rgb(253, 6, 134);
+}
+main #dataMacro #cityShow {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+}
+main #dataMacro #cityShow .pod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  min-width: 80px;
+}
+main #dataMacro #cityShow .pod .sun {
+  text-align: center;
+}
+main #dataMacro #cityShow .pod .sun img {
+  width: 80%;
+}
+main #dataMacro #cityShow .pod .sunrise div {
+  display: flex;
+  flex-direction: row;
+  font-size: 25px;
+}
+main #dataMacro #cityShow .pod .sunrise div img {
+  width: 30px;
+  margin-right: 5px;
+}
+main #dataMacro #cityShow .pod .sunset div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+main #dataMacro #cityShow .pod .sunset div img {
+  width: 30px;
+  margin-right: 5px;
+}
+main #dataMacro #cityShow .cityTemp {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+main #dataMacro #cityShow .cityTemp .cityCtry {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 30px;
+  font-size: 55px;
+}
+main #dataMacro #cityShow .cityTemp .blockTemp {
+  display: flex;
+  height: 100%;
+  margin: 10px;
+}
+main #dataMacro #cityShow .cityTemp .blockTemp .temp {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 60px;
+}
+main #dataMacro #cityShow .cityTemp .blockTemp .feels_like {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+main #dataMacro #cityShow .cityTemp .blockTemp .feels_like .flDt {
+  margin-top: 5px;
+  font-size: 50px;
+}
+main #dataMacro #weather {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+main #dataMacro #weather .humMacr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 3vw;
+}
+main #dataMacro #weather .humMacr .humTxt {
+  margin-top: 10px;
+  font-size: 30px;
+}
+main #dataMacro #weather .humMacr .humDt {
+  margin-top: 10px;
+  font-size: 50px;
+}
+main #dataMacro #weather .iconMxMn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-left: 15px;
+}
+main #dataMacro #weather .iconMxMn img {
+  display: flex;
+  width: 70px;
+  margin: 0;
+}
+main #dataMacro #weather .maxMinDt {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+main #dataMacro #weather .maxMinDt .maxTemp {
+  margin: bottom 2px;
+  font-size: 50px;
+}
+main #dataMacro #weather .maxMinDt .minTemp {
+  margin: bottom 2px;
+  font-size: 50px;
+}
+main #dataDetail {
+  margin: 15px;
+}
+main #dataDetail .pop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+main #dataDetail .pop div .titlePop {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 5px;
+}
+main #dataDetail .pop div .popIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  height: 50%;
+}
+main #dataDetail .pop div .popIcon img {
+  height: 80%;
+}
+main #dataDetail .pop div .popIcon .popDt {
+  font-size: 50px;
+}
+main #dataDetail .pop div .titlePress {
+  font-size: 30px;
+}
+main #dataDetail .pop div .pressureDt {
+  font-size: 50px;
+}
+main #dataDetail .search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+}
+main #dataDetail .search .srchTitle {
+  font-size: 20px;
+  top: 2%;
+}
+main #dataDetail .search #citySearch {
+  height: 40px;
+  width: 250px;
+  font-size: 25px;
+  min-width: 150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+main #dataDetail .search .messErr {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 30px;
+  align-items: center;
+}
+main #dataDetail .windVisib {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: 10px;
+}
+main #dataDetail .windVisib .wind img {
+  width: 100px;
+}
+main #dataDetail .windVisib .wind .windDt {
+  font-size: 50px;
+}
+main #dataDetail .windVisib .visib .visibTxt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  font-size: 30px;
+}
+main #dataDetail .windVisib .visib .visibDt {
+  font-size: 50px;
+}
+main #forecast4d {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  text-align: center;
+}
+main #forecast4d h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+main #forecast4d .block4d {
+  display: flex;
+  margin: 15px;
+}
+main #forecast4d .block4d #references {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 100px;
+  font-size: 14px;
+  list-style: none;
+  border: 0.5px solid black;
+  border-radius: 15px;
+  margin: 10px;
+}
+main #forecast4d .block4d #references .hourRef {
+  height: 20px;
+  text-align: center;
+}
+main #forecast4d .block4d #references .icon {
+  height: 100px;
+  margin-bottom: 5px;
+}
+main #forecast4d .block4d #references .icon img {
+  width: 80px;
+}
+main #forecast4d .block4d #references .tMaxMinRef {
+  text-align: center;
+  height: 20px;
+  background-image: linear-gradient(45deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #references .humidRef {
+  text-align: center;
+}
+main #forecast4d .block4d #references .rainRef {
+  text-align: center;
+  background-image: linear-gradient(200deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #references .windRef {
+  text-align: center;
+}
+main #forecast4d .block4d #references .descrRef {
+  text-align: center;
+  background-image: linear-gradient(175deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #forecastAPI {
+  display: flex;
+  width: auto;
+  height: 250px;
+  width: 92vw;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  margin: auto 0;
+  text-align: center;
+}
+main #forecast4d .block4d #forecastAPI .colHr {
+  display: block;
+  height: 100%;
+  font-size: 14px;
+  list-style: none;
+  border: 0.5px solid black;
+  border-radius: 15px;
+  border-top-right-radius: 40% 20%;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 0px;
+}
+main #forecast4d .block4d #forecastAPI .colHr .hour {
+  font-size: 18px;
+}
+main #forecast4d .block4d #forecastAPI .colHr .tMaxMin {
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+  height: 20px;
+  font-size: 20px;
+  background-image: linear-gradient(45deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #forecastAPI .colHr .rain {
+  background-image: linear-gradient(200deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+main #forecast4d .block4d #forecastAPI .colHr .descr {
+  background-image: linear-gradient(175deg, rgba(0, 251, 255, 0.456) 39%, rgba(51, 56, 57, 0.41) 96%);
+}
+
+/*# sourceMappingURL=style.css.map */

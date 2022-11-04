@@ -1,32 +1,11 @@
-// Colors of header
-$navbarHome: pink;
-$navbar-dark: hsla(39, 100%, 51%);
-
-// Colors of body
-$frontAbout: rgb(255, 206, 47);
-
-// Colors of footer
-$colors-footer:(
-    bg-top: #252525,
-    bg-mdd: #000000,
-    bg-end: #000000,
-    color-h5: #ffffff,
-    color-links: rgb(255, 0, 0),
-    color-lk-animat: rgb(3, 250, 106),
-    color-icon-social: rgb(255, 6, 6),
-    color-icon-animat: rgb(3, 250, 106),
-    color-foot-end: #ffffff
+// Colors of backgrounds
+$colors-background:(
+    bg-blocks: rgba(255, 255, 255, 0.678),
+    bg-scroll:  #f415d688,
+    bg-scroll-border: 2px solid #f1f2f3,
 );
 
-// Layout body
-$ly-body:(
-    wd-car-control: 5%,
-    hg-co-cardImg: auto,
-    height-body-index: 70vh,
-    hg-bd-idx-smal: 92vh,
-    hg-car-inn: 70vh
-);
-
+// Variables accesories
 @mixin cardBlock-mobile {
     height: 22vh;
     width: 22vh

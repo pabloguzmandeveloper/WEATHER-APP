@@ -1,0 +1,21 @@
+#forecastAPI::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+#forecastAPI::-webkit-scrollbar-button:increment,#forecastAPI::-webkit-scrollbar-button {
+    display: none;
+} 
+
+#forecastAPI::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+#forecastAPI::-webkit-scrollbar-thumb {
+    background-color: map-get($colors-background, bg-scroll);
+    border-radius: 20px;
+    border: map-get($colors-background, bg-scroll-border);
+}
+
+#forecastAPI::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
