@@ -1,4 +1,4 @@
-// Funcionalidad para actualización cada hora.
+// Funcionalidad para actualizar pronóstico cada hora automáticamente.
 const dateInit = new Date();
 const minuTime = dateInit.getMinutes();
 console.log(minuTime);
@@ -6,12 +6,10 @@ console.log(minuTime);
 const timerLap = (60-minuTime)*60000;
 console.log(timerLap);
 
-let cityStorage = localStorage.cityStorage;
-
 function timerOut() {
-    reqApiCity(cityStorage);
+    cityStorage ? reqApiCity(cityStorage) : navigator.geolocation.getCurrentPosition(reqApiCoord, errorMessage);
+    console.log("timer se activó")
 };
-console.log(timerOut());
 
 // let timerHour = setTimeout(timerOut,10000);//luego de tantos fallos nos dimos cuenta que esta función setTimeout() solo retorna valor 1, no retorna valores de una función que introduzcamos para guardarla en variable, sino hay que pensar en usar una función que trabaje por afuera para que ejecute funciones con esas variables que queremos usar.
 

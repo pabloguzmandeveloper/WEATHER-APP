@@ -3,47 +3,5 @@ $colors-background:(
     bg-blocks: rgba(255, 255, 255, 0.678),
     bg-scroll:  #f415d688,
     bg-scroll-border: 2px solid #f1f2f3,
+    bg-clock: rgb(255, 185, 9),
 );
-
-// Variables accesories
-@mixin cardBlock-mobile {
-    height: 22vh;
-    width: 22vh
-}
-
-@mixin cardBlock-tablet {
-    height: 30vh;
-    width: 30vh;
-}
-
-@mixin cardBlock-h-w {
-    height:50vh;
-    width: 50vh;
-}
-
-@mixin cardBlock-explore-h-w {
-    height:40vh;
-    width: 40vh;
-}
-
-// header opacity
-@mixin hd-opacity {
-    opacity: 0.5;
-}
-
-// backgroud video views
-@mixin bg-video-view {    
-    display: flex;    
-    position: fixed;
-    z-index: -1;
-    opacity: 0.5;
-    min-width: 100vw;
-    max-width: 100vw;
-    justify-content: center;    
-    overflow: hidden;
-}
-
-// footer views
-@mixin footer-view {
-    opacity: 0.9;
-}

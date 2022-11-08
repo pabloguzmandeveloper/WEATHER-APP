@@ -22,6 +22,25 @@ const visibDt   = document.querySelector(".visibDt");
 const keyAPI = "d8df573a71f861d27a7a93e6e190e8a0"
 let api;
 
+// Inicializamos el uso de la app con una ciudad con geolocalización de IP, cuando localStorage esté vacío.
+let cityStorage = localStorage.cityStorage;
+if (localStorage.cityStorage) {
+    reqApiCity(cityStorage);
+    console.log("localStorage.cityStorage activo")
+}
+else if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(reqApiCoord, errorMessage);
+    console.log("se buscó por geolocalización")
+    console.log(navigator.geolocation);
+}else{
+    Swal.fire({
+        title: 'Tu navegador no permite detectar tu LOCATION',
+        text: SON.stringify(error),
+        icon: 'error',
+        confirmButtonText: 'Continuar'
+    });
+};
+
 
 // >> Función para luego de presionar enter en el input de CITY, procesa dicha CITY y hace el request a la API.
 CITY.addEventListener("keyup", e =>{
@@ -31,7 +50,8 @@ CITY.addEventListener("keyup", e =>{
         reqApiCity(CITY.value);
         console.log(CITY.value);
         //función request a la API con update por hora.
-        setTimeout(timerOut,timerLap);
+        setTimeout(timerOut,timerLap);// Update para pronósticio automático.
+        console.log("se buscó por input ciudad: "+CITY.value)
     }
 });
 // Función request a la API por CITY, city como parámetro de la misma. Luego llama a la función fetchData.
@@ -46,6 +66,8 @@ LOCATION.addEventListener("click", () =>{
         // Obtenidas las coordenadas en el browser, estas se las envian a una función para realizar el request por coordenadas, no por CITY. Si falla se emite alerta.
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(reqApiCoord, errorMessage);
+            setTimeout(timerOut,timerLap);// Update para pronósticio automático.
+            console.log("se buscó por geolocalización")
         }else{
             Swal.fire({
                 title: 'Tu navegador no permite detectar tu LOCATION',
@@ -90,8 +112,9 @@ function weatherData(data){
         infoTxt.classList.replace("Pendiente", "error");
         infoTxt.innerText = `${inputField.value} CITY INVÁLIDA, ingrese otra ciudad`;
     }else{
-        //guardamos la ciudad para reutilizarla con el temporizador.
+        //guardamos la ciudad para reutilizarla en el temporizador y memoria para inicio por ciudad.
         CITY.value !=""?localStorage.cityStorage = CITY.value : localStorage.cityStorage;
+        console.log("Ciudad en localStorage: "+localStorage.cityStorage);
         //se seleccionan los datos que nos inmportan del json en forma de objetos y arrays para datos clima actual.
         const dataSunrise = luxon.DateTime.fromSeconds(data.city.sunrise).toFormat('HH:mm');
         const dataSunset = luxon.DateTime.fromSeconds(data.city.sunset).toFormat('HH:mm');

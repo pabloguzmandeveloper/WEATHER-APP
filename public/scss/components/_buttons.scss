@@ -2,6 +2,40 @@ main {
     .wrapper {
         .geoFind {
             font-size: 25px;
+            background: map-get($colors-background, bg-clock);
+            animation-name: parpadeo;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            
+            -webkit-animation-name:parpadeo;
+            -webkit-animation-duration: 1.5s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        @-moz-keyframes parpadeo{  
+            0% { opacity: 1.0; }
+            10% { opacity: 0.9; }
+            50% { opacity: 0.4; }
+            90% { opacity: 0.9; }
+            100% { opacity: 1.0; }
+        }
+
+        @-webkit-keyframes parpadeo {  
+            0% { opacity: 1.0; }
+            10% { opacity: 0.9; }
+            50% { opacity: 0.4; }
+            90% { opacity: 0.9; }
+            100% { opacity: 1.0; }
+        }
+
+        @keyframes parpadeo {  
+            0% { opacity: 1.0; }
+            10% { opacity: 0.9; }
+            50% { opacity: 0.4; }
+            90% { opacity: 0.9; }
+            100% { opacity: 1.0; }
         }
     }
 

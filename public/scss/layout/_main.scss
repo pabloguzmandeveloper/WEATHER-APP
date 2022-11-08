@@ -28,7 +28,7 @@ main {
                     border-radius: 5px;
 
                     #clock{
-                        background-color: rgb(255, 185, 9);
+                        background-color:map-get($colors-background, bg-clock);
                         font-family: sans-serif;
                         font-size: 4vw;
                         text-shadow: 0px 0px 2px #fff;
