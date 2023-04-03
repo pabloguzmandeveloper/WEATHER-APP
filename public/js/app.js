@@ -19,7 +19,7 @@ const windDt    = document.querySelector(".windDt");
 const visibDt   = document.querySelector(".visibDt");
 
 // Variables que guradaran key de API OPENWEATERMAP y la ruta url de la misma API.
-const keyAPI = "d8df573a71f861d27a7a93e6e190e8a0"
+const keyAPI = "67577e6ee738f800db7a1f336b81f172"
 let api;
 
 // Inicializamos el uso de la app con una ciudad con geolocalización de IP, cuando localStorage esté vacío.
